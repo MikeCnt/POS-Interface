@@ -5,7 +5,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class FirstView {
+public class usersView {
     public static void main(String[] args){
 
         JFrame jf = new JFrame();
@@ -18,6 +18,7 @@ public class FirstView {
 //      Crear JPanel con la estructura de GridLayout
         JPanel jp = new JPanel(gl);
 
+//      Leer de la base de datos para crear los trabajadores necesarios
         int nWorkers = 6;
         
         if (nWorkers % 2 == 0){
