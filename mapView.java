@@ -8,7 +8,7 @@ import java.awt.*;
 public class mapView {
 	public static void main(String[] args) {
 
-		JFrame jf = new JFrame("Map");
+		JFrame jf = new JFrame("Mapa");
 		
 		BorderLayout bl = new BorderLayout();
 		bl.setHgap(20);
@@ -110,7 +110,7 @@ public class mapView {
 
 		JPanel south = new JPanel(flSouth);
 
-		JButton back = new JButton("Back");
+		JButton back = new JButton("Atras");
 		
 		south.add(back);
 
