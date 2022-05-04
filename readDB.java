@@ -3,14 +3,14 @@ import java.util.*;
 
 public class readDB {
     
-//  Variables para almacenar los datos de la base de datos de trabajadores
-    private Vector name = new Vector();
-    private Vector surname = new Vector();
-    private Vector email = new Vector();
-    private Vector number = new Vector();
-    private Vector sold = new Vector();
+//  Variables
+    private Vector name = new Vector(); // Worker's name
+    private Vector surname = new Vector(); // Worker's surname
+    private Vector email = new Vector(); // Worker's email
+    private Vector number = new Vector(); // Worker's phone number
+    private Vector sold = new Vector(); // Worker's bills amount
 
-//  Funcion para leer de la base de datos de trabajadores
+//  Function to read the worker's database
     public Vector readDBdata(String index){
 
         File f = null;
