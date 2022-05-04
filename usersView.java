@@ -10,13 +10,11 @@ public class usersView {
     public static void main(String[] args){
 
         JFrame jf = new JFrame();
-        GridBagLayout gl = new GridBagLayout();
 
+        GridBagLayout gl = new GridBagLayout();
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.NONE;
         c.insets = new Insets(50, 50, 50, 50);
-        
-//      Crear JPanel con la estructura de GridLayout
         JPanel jp = new JPanel(gl);
 
 //      Leer de la base de datos para crear los trabajadores necesarios
