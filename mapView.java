@@ -8,7 +8,12 @@ import java.awt.*;
 public class mapView {
 	public static void main(String[] args) {
 
+//	Main JFrame
+		
 		JFrame jf = new JFrame("Mapa");
+
+
+//	BorderLayout for the main panel and main JPanel 
 		
 		BorderLayout bl = new BorderLayout();
 		bl.setHgap(20);
@@ -19,7 +24,7 @@ public class mapView {
 		jf.setContentPane(jp);
 
 
-		//FlowLayout for the top panel
+//	FlowLayout for the top panel
 
 		FlowLayout flNorth = new FlowLayout();
 
@@ -35,7 +40,7 @@ public class mapView {
 		north.add(calendar);
 
 
-		//GridLayout for the map in the center
+//	GridLayout for the map in the center
 
 		GridLayout gl = new GridLayout(3,5);
 
@@ -44,6 +49,7 @@ public class mapView {
 
 		JPanel center = new JPanel(gl);
 
+//		Numbered Buttons
 		JButton button1 = new JButton("1");
 		JButton button2 = new JButton("2");
 		JButton button3 = new JButton("3");
@@ -52,7 +58,9 @@ public class mapView {
 		JButton button6 = new JButton("6");
 		JButton button7 = new JButton("7");
 		JButton button8 = new JButton("8");
-		
+
+
+//		Invisible buttons
 		JButton inv1 = new JButton();
 		inv1.setOpaque(false);
 		inv1.setContentAreaFilled(false);
@@ -82,6 +90,8 @@ public class mapView {
 		inv7.setContentAreaFilled(false);
 		inv7.setBorderPainted(false);
 		
+		
+//		Adding all the buttons in order to the GridLayout
 		center.add(button1);
 		center.add(inv1);
 		center.add(button2);
@@ -100,7 +110,7 @@ public class mapView {
 
 
 
-		//FlowLayout for the back button
+//		FlowLayout for the back button
 
 		FlowLayout flSouth = new FlowLayout();
 
@@ -115,7 +125,7 @@ public class mapView {
 		south.add(back);
 
 
-		//Invisible panel for restaurant bar
+//		Invisible panel for restaurant bar
 
 		FlowLayout flEast = new FlowLayout();
 
@@ -135,7 +145,7 @@ public class mapView {
 		
 
 
-		//Invisible panel for west separation
+//		Invisible panel for west separation
 
 		FlowLayout flWest = new FlowLayout();
 
@@ -153,7 +163,7 @@ public class mapView {
 		west.add(invWest);
 
 
-		//Añadimos los sub-paneles al panel principal de BorderLayout
+//		Añadimos los sub-paneles al panel principal de BorderLayout
 
 		jp.add(north, BorderLayout.NORTH);
 		jp.add(center, BorderLayout.CENTER);
