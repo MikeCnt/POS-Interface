@@ -8,7 +8,6 @@ public class readDB {
     private Vector surname = new Vector(); // Worker's surname
     private Vector email = new Vector(); // Worker's email
     private Vector number = new Vector(); // Worker's phone number
-    private Vector sold = new Vector(); // Worker's bills amount
 
 //  Function to read the worker's database
     public Vector readDBdata(String index){
@@ -32,9 +31,7 @@ public class readDB {
                 email.addElement(token[2]);
                 String parseNumber = String.valueOf(token[3]);
                 number.addElement(parseNumber);
-                String parseSold = String.valueOf(token[4]);
-                sold.addElement(parseSold);
-
+                
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -54,10 +51,8 @@ public class readDB {
             return surname;
         }else if(index.equals("email")){
             return email;
-        }else if(index.equals("number")){
-            return number;
         }else{
-            return sold; 
+            return number;
         }
     }
 }

@@ -11,6 +11,21 @@ public class menuView {
         JFrame jf = new JFrame();
         jf.setTitle("Vista Menu");
 
+//      Añadimos la bara del menu superior y las acciones que la controlan
+        JMenuBar menubar = new JMenuBar();
+        JMenuItem calculator = new JMenuItem();
+
+        Image image = new ImageIcon("images/Calculator.png").getImage();
+        calculator.setHorizontalTextPosition(SwingConstants.CENTER);
+        calculator.setVerticalTextPosition(SwingConstants.BOTTOM);
+        calculator.setIcon(new ImageIcon(image));
+
+        menubar.add(calculator);
+
+        MyJMenuListener jmListener = new MyJMenuListener(calculator);
+
+        calculator.addActionListener(jmListener);
+
 //      Creamos la primera division en dos del frame
         GridLayout gl = new GridLayout(1,2);
         JPanel centralPanel = new JPanel(gl);
@@ -74,11 +89,14 @@ public class menuView {
         centralPanel.add(jp1);
         centralPanel.add(jp2);
 
-        
         jf.add(centralPanel);
         jf.setSize(1920,1080);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
+
+        jf.setJMenuBar(menubar);
+        jf.validate();
+        jf.repaint();
 
     }
 }
