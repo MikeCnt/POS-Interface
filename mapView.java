@@ -8,7 +8,12 @@ import java.awt.*;
 public class mapView {
 	public static void main(String[] args) {
 
+//	Main JFrame
+		
 		JFrame jf = new JFrame("Mapa");
+
+
+//	BorderLayout for the main panel and main JPanel 
 		
 		BorderLayout bl = new BorderLayout();
 		bl.setHgap(20);
@@ -19,7 +24,7 @@ public class mapView {
 		jf.setContentPane(jp);
 
 
-		//FlowLayout for the top panel
+//	FlowLayout for the top panel
 
 		FlowLayout flNorth = new FlowLayout();
 
@@ -31,11 +36,12 @@ public class mapView {
 
 		JButton calendar = new JButton("c");
 		calendar.setPreferredSize(new Dimension(50, 50));
+		calendar.addActionListener(new mapViewListener(north));
 
 		north.add(calendar);
 
 
-		//GridLayout for the map in the center
+//	GridLayout for the map in the center
 
 		GridLayout gl = new GridLayout(3,5);
 
@@ -44,15 +50,26 @@ public class mapView {
 
 		JPanel center = new JPanel(gl);
 
+//		Numbered Buttons
 		JButton button1 = new JButton("1");
+		button1.addActionListener(new mapViewListener(center));
 		JButton button2 = new JButton("2");
+		button2.addActionListener(new mapViewListener(center));
 		JButton button3 = new JButton("3");
+		button3.addActionListener(new mapViewListener(center));
 		JButton button4 = new JButton("4");
+		button4.addActionListener(new mapViewListener(center));
 		JButton button5 = new JButton("5");
+		button5.addActionListener(new mapViewListener(center));
 		JButton button6 = new JButton("6");
+		button6.addActionListener(new mapViewListener(center));
 		JButton button7 = new JButton("7");
+		button7.addActionListener(new mapViewListener(center));
 		JButton button8 = new JButton("8");
-		
+		button8.addActionListener(new mapViewListener(center));
+
+
+//		Invisible buttons
 		JButton inv1 = new JButton();
 		inv1.setOpaque(false);
 		inv1.setContentAreaFilled(false);
@@ -82,6 +99,8 @@ public class mapView {
 		inv7.setContentAreaFilled(false);
 		inv7.setBorderPainted(false);
 		
+		
+//		Adding all the buttons in order to the GridLayout
 		center.add(button1);
 		center.add(inv1);
 		center.add(button2);
@@ -100,7 +119,7 @@ public class mapView {
 
 
 
-		//FlowLayout for the back button
+//		FlowLayout for the back button
 
 		FlowLayout flSouth = new FlowLayout();
 
@@ -111,11 +130,12 @@ public class mapView {
 		JPanel south = new JPanel(flSouth);
 
 		JButton back = new JButton("Atras");
+		back.addActionListener(new mapViewListener(south));
 		
 		south.add(back);
 
 
-		//Invisible panel for restaurant bar
+//		Invisible panel for restaurant bar
 
 		FlowLayout flEast = new FlowLayout();
 
@@ -135,7 +155,7 @@ public class mapView {
 		
 
 
-		//Invisible panel for west separation
+//		Invisible panel for west separation
 
 		FlowLayout flWest = new FlowLayout();
 
@@ -153,7 +173,7 @@ public class mapView {
 		west.add(invWest);
 
 
-		//Añadimos los sub-paneles al panel principal de BorderLayout
+//		Añadimos los sub-paneles al panel principal de BorderLayout
 
 		jp.add(north, BorderLayout.NORTH);
 		jp.add(center, BorderLayout.CENTER);
