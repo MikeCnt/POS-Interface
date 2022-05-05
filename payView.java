@@ -62,8 +62,10 @@ public class payView {
 		JPanel inner = new JPanel(fl);
 		JButton cash = new JButton("EFECTIVO");
 		cash.setPreferredSize(new Dimension(250,70));
+		cash.addActionListener(new payViewListener(inner));
 		JButton card = new JButton("TARJETA");
 		card.setPreferredSize(new Dimension(250,70));
+		card.addActionListener(new payViewListener(inner));
 		inner.add(cash);
 		inner.add(card);
 		

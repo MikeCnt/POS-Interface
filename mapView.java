@@ -36,6 +36,7 @@ public class mapView {
 
 		JButton calendar = new JButton("c");
 		calendar.setPreferredSize(new Dimension(50, 50));
+		calendar.addActionListener(new mapViewListener(north));
 
 		north.add(calendar);
 
@@ -51,13 +52,21 @@ public class mapView {
 
 //		Numbered Buttons
 		JButton button1 = new JButton("1");
+		button1.addActionListener(new mapViewListener(center));
 		JButton button2 = new JButton("2");
+		button2.addActionListener(new mapViewListener(center));
 		JButton button3 = new JButton("3");
+		button3.addActionListener(new mapViewListener(center));
 		JButton button4 = new JButton("4");
+		button4.addActionListener(new mapViewListener(center));
 		JButton button5 = new JButton("5");
+		button5.addActionListener(new mapViewListener(center));
 		JButton button6 = new JButton("6");
+		button6.addActionListener(new mapViewListener(center));
 		JButton button7 = new JButton("7");
+		button7.addActionListener(new mapViewListener(center));
 		JButton button8 = new JButton("8");
+		button8.addActionListener(new mapViewListener(center));
 
 
 //		Invisible buttons
@@ -121,6 +130,7 @@ public class mapView {
 		JPanel south = new JPanel(flSouth);
 
 		JButton back = new JButton("Atras");
+		back.addActionListener(new mapViewListener(south));
 		
 		south.add(back);
 
