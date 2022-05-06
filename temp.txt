@@ -1,4 +1,2 @@
 Manolo
-3,200,order
-Selecionados
-50
+3,0,order

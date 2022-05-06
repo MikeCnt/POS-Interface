@@ -16,7 +16,6 @@ public class usersView {
         c.fill = GridBagConstraints.NONE;
         c.insets = new Insets(50, 50, 50, 50);
         JPanel jp = new JPanel(gl);
-        jp.setOpaque(false);
 
 //      Leer de la base de datos para crear los trabajadores necesarios
         readDB readDB = new readDB();
@@ -25,8 +24,7 @@ public class usersView {
         int index = 0;
 
 //      Establecemos el fondo de pantalla
-        new paintBackground().create(jf);
-
+        jp.setBackground(new Color(73,115,203));
 
         if (nWorkers % 2 == 0){
 
@@ -41,7 +39,7 @@ public class usersView {
                                 JButton button = new JButton(name);
                                 button.setForeground(Color.WHITE);
                                 button.setPreferredSize(new Dimension(350, 100));
-                                button.setBorder(new ButtonStyle(40));
+                                //button.setBorder(new ButtonStyle(40));
                                 button.setBackground(new Color(97,104,135));
                                 jp.add(button,c);
                                 index++;
@@ -61,7 +59,7 @@ public class usersView {
                                 JButton button = new JButton(name);
                                 button.setForeground(Color.WHITE);
                                 button.setPreferredSize(new Dimension(350, 100));
-                                button.setBorder(new ButtonStyle(40));
+                                //button.setBorder(new ButtonStyle(40));
                                 button.setBackground(new Color(97,104,135));
                                 
                                 jp.add(button,c);
@@ -89,8 +87,7 @@ public class usersView {
 
         }
 
-        
-        jf.add(jp); // FALLA AL SUPERPONER EL FONDO A LOS BOTONES
+        jf.add(jp); 
         
         jf.setSize(1920, 1080);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
