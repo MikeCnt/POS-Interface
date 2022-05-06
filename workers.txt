@@ -1,4 +1,4 @@
-Antonio,Lopez Muñoz,i92lomua@uco.es,635010847,1000
-Miguel Angel,Contreras Cordoba,i92cocom@uco.es,687341092,2000
-Jose Juan, Moreno Espino, correo@uco.es,684390123,5000
-Ignacio, Monstserrat, inga@uco.es,684919304,10000
+Antonio,Lopez Muñoz,i92lomua@uco.es,635010847
+Miguel Angel,Contreras Cordoba,i92cocom@uco.es,687341092
+Jose Juan, Moreno Espino, correo@uco.es,684390123
+Ignacio, Monstserrat, inga@uco.es,684919304
