@@ -60,12 +60,21 @@ public class payView {
 		fl.setAlignment(FlowLayout.CENTER);
 		fl.setHgap(200);
 		JPanel inner = new JPanel(fl);
-		JButton cash = new JButton("EFECTIVO");
-		cash.setPreferredSize(new Dimension(250,70));
+
+		ImageIcon cashBtn = new ImageIcon("images/efectivoButton.png");
+		JButton cash = new JButton("EFECTIVO", cashBtn);
+		cash.setFont(new Font("Arial", Font.PLAIN, 1));
 		cash.addActionListener(new payViewListener(inner));
-		JButton card = new JButton("TARJETA");
-		card.setPreferredSize(new Dimension(250,70));
+		cash.setContentAreaFilled(false);
+		cash.setBorderPainted(false);
+
+		ImageIcon cardBtn = new ImageIcon("images/tarjetaButton.png");
+		JButton card = new JButton("TARJETA", cardBtn);
+		card.setFont(new Font("Arial", Font.PLAIN, 1));
 		card.addActionListener(new payViewListener(inner));
+		card.setContentAreaFilled(false);
+		card.setBorderPainted(false);
+
 		inner.add(cash);
 		inner.add(card);
 		

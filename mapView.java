@@ -172,8 +172,12 @@ public class mapView {
 
 		JPanel south = new JPanel(flSouth);
 
-		JButton back = new JButton("Atras");
+		ImageIcon backBtn = new ImageIcon("images/atrasButton.png");
+		JButton back = new JButton("Atras", backBtn);
+		back.setFont(new Font("Arial", Font.PLAIN, 1));
 		back.addActionListener(new mapViewListener(south));
+		back.setContentAreaFilled(false);
+		back.setBorderPainted(false);
 		
 		south.add(back);
 
