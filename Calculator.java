@@ -50,7 +50,6 @@ public class Calculator extends JFrame implements ActionListener
       add(res,BorderLayout.NORTH);
       setVisible(true);
       setSize(300,300);
-      p.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
      }
 public void actionPerformed(ActionEvent ae)
 {

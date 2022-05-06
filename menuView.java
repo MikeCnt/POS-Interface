@@ -13,17 +13,32 @@ public class menuView {
 
 //      Añadimos la bara del menu superior y las acciones que la controlan
         JMenuBar menubar = new JMenuBar();
-        JMenuItem calculator = new JMenuItem();
+        JMenu menu = new JMenu();
+        JMenuItem calculator = new JMenuItem("Calculadora");
+        JMenuItem personalInfo = new JMenuItem("Informacion");
+        JMenuItem calendar = new JMenuItem("Calendario");
 
-        Image image = new ImageIcon("images/Calculator.png").getImage();
-        calculator.setHorizontalTextPosition(SwingConstants.CENTER);
-        calculator.setVerticalTextPosition(SwingConstants.BOTTOM);
-        calculator.setIcon(new ImageIcon(image));
+        menubar.add(Box.createHorizontalGlue());
 
-        menubar.add(calculator);
+        Image image = new ImageIcon("images/Options.png").getImage();
+        menu.setIcon(new ImageIcon(image));
 
-        MyJMenuListener jmListener = new MyJMenuListener(calculator);
+        Image image2 = new ImageIcon("images/Calculator.png").getImage();
+        calculator.setIcon(new ImageIcon(image2));
 
+        Image image3 = new ImageIcon("images/PersonalInfo.png").getImage();
+        personalInfo.setIcon(new ImageIcon(image3));
+
+        Image image4 = new ImageIcon("images/Calendar.png").getImage();
+        calendar.setIcon(new ImageIcon(image4));
+
+        menu.add(calculator);
+        menu.add(personalInfo);
+        menu.add(calendar);
+        menubar.setLayout(new GridBagLayout());
+        menubar.add(menu);
+
+        MyJMenuListener jmListener = new MyJMenuListener(calculator, personalInfo, calendar);
         calculator.addActionListener(jmListener);
 
 //      Creamos la primera division en dos del frame
@@ -35,6 +50,94 @@ public class menuView {
         jp1.setBackground(Color.WHITE);
         jp2.setBackground(new Color(73,115,203));
 
+//      Creamos los botones del panel derecho
+        GridBagLayout p2gl = new GridBagLayout();
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.NONE;
+        c.insets = new Insets(50, 50, 50, 50);
+        jp2.setLayout(p2gl);
+
+        c.gridx = 0;
+        c.gridy = 0;
+
+        JButton button = new JButton("BEBIDAS");
+        button.setForeground(Color.WHITE);
+        button.setPreferredSize(new Dimension(350, 100));
+        //button.setBorder(new ButtonStyle(40));
+        button.setBackground(new Color(97,104,135));
+        jp2.add(button,c);
+
+        c.gridx = 1;
+        c.gridy = 0;
+
+        JButton button2 = new JButton("ENTRANTES");
+        button2.setForeground(Color.WHITE);
+        button2.setPreferredSize(new Dimension(350, 100));
+        //button2.setBorder(new ButtonStyle(40));
+        button2.setBackground(new Color(97,104,135));
+        jp2.add(button2,c);
+
+        c.gridx = 0;
+        c.gridy = 1;
+
+        JButton button3 = new JButton("ENSALADAS");
+        button3.setForeground(Color.WHITE);
+        button3.setPreferredSize(new Dimension(350, 100));
+        //button3.setBorder(new ButtonStyle(40));
+        button3.setBackground(new Color(97,104,135));
+        jp2.add(button3,c);
+
+        c.gridx = 1;
+        c.gridy = 1;
+
+        JButton button4 = new JButton("PESCADOS");
+        button4.setForeground(Color.WHITE);
+        button4.setPreferredSize(new Dimension(350, 100));
+        //button4.setBorder(new ButtonStyle(40));
+        button4.setBackground(new Color(97,104,135));
+        jp2.add(button4,c);
+
+        c.gridx = 0;
+        c.gridy = 2;
+
+        JButton button5 = new JButton("CARNES");
+        button5.setForeground(Color.WHITE);
+        button5.setPreferredSize(new Dimension(350, 100));
+        //button5.setBorder(new ButtonStyle(40));
+        button5.setBackground(new Color(97,104,135));
+        jp2.add(button5,c);
+
+        c.gridx = 1;
+        c.gridy = 2;
+
+        JButton button6 = new JButton("POSTRES");
+        button6.setForeground(Color.WHITE);
+        button6.setPreferredSize(new Dimension(350, 100));
+        //button6.setBorder(new ButtonStyle(40));
+        button6.setBackground(new Color(97,104,135));
+        jp2.add(button6,c);
+
+        c.gridx = 0;
+        c.gridy = 3;
+
+        JButton button7 = new JButton("MENU NIÑOS");
+        button7.setForeground(Color.WHITE);
+        button7.setPreferredSize(new Dimension(350, 100));
+        //button7.setBorder(new ButtonStyle(40));
+        button7.setBackground(new Color(97,104,135));
+        jp2.add(button7,c);
+
+        c.gridx = 1;
+        c.gridy = 3;
+
+        JButton button8 = new JButton("COMBINADOS");
+        button8.setForeground(Color.WHITE);
+        button8.setPreferredSize(new Dimension(350, 100));
+        //button8.setBorder(new ButtonStyle(40));
+        button8.setBackground(new Color(97,104,135));
+        jp2.add(button8,c);
+
+        
 //      Creamos una division del panel inferior para coger las 3/4 partes del panel izquierdo
         GridLayout gl2 = new GridLayout(2,1);
         jp1.setLayout(gl2);
