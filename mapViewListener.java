@@ -29,6 +29,8 @@ public class mapViewListener implements ActionListener{
         }
         else if (e.getActionCommand().equals("1") || e.getActionCommand().equals("2") || e.getActionCommand().equals("3") || e.getActionCommand().equals("4")
                 || e.getActionCommand().equals("5") || e.getActionCommand().equals("6") || e.getActionCommand().equals("7") || e.getActionCommand().equals("8")){
+            
+
             try {
 
                 File tables = new File("tables.txt");

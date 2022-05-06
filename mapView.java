@@ -34,9 +34,13 @@ public class mapView {
 
 		JPanel north = new JPanel(flNorth);
 
-		JButton calendar = new JButton("c");
+//		CALENDAR BUTTON
+		JButton calendar = new JButton();
 		calendar.setPreferredSize(new Dimension(50, 50));
 		calendar.addActionListener(new mapViewListener(north));
+		calendar.setContentAreaFilled(false);
+		calendar.setBorderPainted(false);
+		calendar.setOpaque(false);
 
 		north.add(calendar);
 
@@ -51,22 +55,61 @@ public class mapView {
 		JPanel center = new JPanel(gl);
 
 //		Numbered Buttons
-		JButton button1 = new JButton("1");
+		ImageIcon table1 = new ImageIcon("images/table1.png");
+		JButton button1 = new JButton("1",table1);
 		button1.addActionListener(new mapViewListener(center));
-		JButton button2 = new JButton("2");
+		button1.setFont(new Font("Arial", Font.PLAIN, 1));
+		button1.setContentAreaFilled(false);
+		button1.setBorderPainted(false);
+
+		ImageIcon table2 = new ImageIcon("images/table2.png");
+		JButton button2 = new JButton("2",table2);
 		button2.addActionListener(new mapViewListener(center));
-		JButton button3 = new JButton("3");
+		button2.setFont(new Font("Arial", Font.PLAIN, 1));
+		button2.setContentAreaFilled(false);
+		button2.setBorderPainted(false);
+
+		ImageIcon table3 = new ImageIcon("images/table3.png");
+		JButton button3 = new JButton("3",table3);
 		button3.addActionListener(new mapViewListener(center));
-		JButton button4 = new JButton("4");
+		button3.setFont(new Font("Arial", Font.PLAIN, 1));
+		button3.setContentAreaFilled(false);
+		button3.setBorderPainted(false);
+
+		ImageIcon table4 = new ImageIcon("images/table4.png");
+		JButton button4 = new JButton("4",table4);
 		button4.addActionListener(new mapViewListener(center));
-		JButton button5 = new JButton("5");
+		button4.setFont(new Font("Arial", Font.PLAIN, 1));
+		button4.setContentAreaFilled(false);
+		button4.setBorderPainted(false);
+
+		ImageIcon table5 = new ImageIcon("images/table5.png");
+		JButton button5 = new JButton("5",table5);
 		button5.addActionListener(new mapViewListener(center));
-		JButton button6 = new JButton("6");
+		button5.setFont(new Font("Arial", Font.PLAIN, 1));
+		button5.setContentAreaFilled(false);
+		button5.setBorderPainted(false);
+
+		ImageIcon table6 = new ImageIcon("images/table6.png");
+		JButton button6 = new JButton("6",table6);
 		button6.addActionListener(new mapViewListener(center));
-		JButton button7 = new JButton("7");
+		button6.setFont(new Font("Arial", Font.PLAIN, 1));
+		button6.setContentAreaFilled(false);
+		button6.setBorderPainted(false);
+
+		ImageIcon table7 = new ImageIcon("images/table7.png");
+		JButton button7 = new JButton("7",table7);
 		button7.addActionListener(new mapViewListener(center));
-		JButton button8 = new JButton("8");
+		button7.setFont(new Font("Arial", Font.PLAIN, 1));
+		button7.setContentAreaFilled(false);
+		button7.setBorderPainted(false);
+
+		ImageIcon table8 = new ImageIcon("images/table8.png");
+		JButton button8 = new JButton("8",table8);
 		button8.addActionListener(new mapViewListener(center));
+		button8.setFont(new Font("Arial", Font.PLAIN, 1));
+		button8.setContentAreaFilled(false);
+		button8.setBorderPainted(false);
 
 
 //		Invisible buttons
@@ -174,15 +217,13 @@ public class mapView {
 
 
 //		Añadimos los sub-paneles al panel principal de BorderLayout
-
+		
 		jp.add(north, BorderLayout.NORTH);
 		jp.add(center, BorderLayout.CENTER);
 		jp.add(south, BorderLayout.SOUTH);
 		jp.add(east, BorderLayout.EAST);
 		jp.add(west, BorderLayout.WEST);
 
-
-        
 		jf.setSize(1920, 1080);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setVisible(true);		
