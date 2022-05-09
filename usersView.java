@@ -5,9 +5,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
-import java.io.File;
-import java.util.Scanner;
-import java.io.FileNotFoundException;
 
 public class usersView {
     public static void main(String[] args){
@@ -52,6 +49,16 @@ public class usersView {
         JPanel reservationTablesPanel = new JPanel(blReservationTables);
 
 
+//	    GridLayout for the center
+        
+	BorderLayout blCenterChooseDay = new BorderLayout();
+
+	blCenterChooseDay.setHgap(20);
+	blCenterChooseDay.setVgap(20);
+
+	JPanel centerChooseDay = new JPanel(blCenterChooseDay);
+
+
 //	chooseDayPanel
 		
         BorderLayout blChooseDay = new BorderLayout();
@@ -59,6 +66,12 @@ public class usersView {
         blChooseDay.setVgap(20);
 
         JPanel chooseDayPanel = new JPanel(blChooseDay);
+
+
+//	menuViewPanel
+
+	GridLayout gl = new GridLayout(1,2);
+	JPanel centralPanel = new JPanel(gl);
 
 
 
@@ -183,56 +196,56 @@ public class usersView {
 
         ImageIcon table1MapView = new ImageIcon("images/table1.png");
         JButton button1MapView = new JButton("1",table1MapView);
-        button1MapView.addActionListener(new mapViewListener());
+        button1MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button1MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button1MapView.setContentAreaFilled(false);
         button1MapView.setBorderPainted(false);
 
         ImageIcon table2MapView = new ImageIcon("images/table2.png");
         JButton button2MapView = new JButton("2",table2MapView);
-        button2MapView.addActionListener(new mapViewListener());
+        button2MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button2MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button2MapView.setContentAreaFilled(false);
         button2MapView.setBorderPainted(false);
 
         ImageIcon table3MapView = new ImageIcon("images/table3.png");
         JButton button3MapView = new JButton("3",table3MapView);
-        button3MapView.addActionListener(new mapViewListener());
+        button3MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button3MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button3MapView.setContentAreaFilled(false);
         button3MapView.setBorderPainted(false);
 
         ImageIcon table4MapView = new ImageIcon("images/table4.png");
         JButton button4MapView = new JButton("4",table4MapView);
-        button4MapView.addActionListener(new mapViewListener());
+        button4MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button4MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button4MapView.setContentAreaFilled(false);
         button4MapView.setBorderPainted(false);
 
         ImageIcon table5MapView = new ImageIcon("images/table5.png");
         JButton button5MapView = new JButton("5",table5MapView);
-        button5MapView.addActionListener(new mapViewListener());
+        button5MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button5MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button5MapView.setContentAreaFilled(false);
         button5MapView.setBorderPainted(false);
 
         ImageIcon table6MapView = new ImageIcon("images/table6.png");
         JButton button6MapView = new JButton("6",table6MapView);
-        button6MapView.addActionListener(new mapViewListener());
+        button6MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button6MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button6MapView.setContentAreaFilled(false);
         button6MapView.setBorderPainted(false);
 
         ImageIcon table7MapView = new ImageIcon("images/table7.png");
         JButton button7MapView = new JButton("7",table7MapView);
-        button7MapView.addActionListener(new mapViewListener());
+        button7MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button7MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button7MapView.setContentAreaFilled(false);
         button7MapView.setBorderPainted(false);
 
         ImageIcon table8MapView = new ImageIcon("images/table8.png");
         JButton button8MapView = new JButton("8",table8MapView);
-        button8MapView.addActionListener(new mapViewListener());
+        button8MapView.addActionListener(new mapViewListener(jf, centralPanel));
         button8MapView.setFont(new Font("Arial", Font.PLAIN, 1));
         button8MapView.setContentAreaFilled(false);
         button8MapView.setBorderPainted(false);
@@ -406,56 +419,56 @@ public class usersView {
 
         ImageIcon table1ReservationTables = new ImageIcon("images/table1.png");
         JButton button1ReservationTables = new JButton("1",table1ReservationTables);
-        button1ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button1ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button1ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button1ReservationTables.setContentAreaFilled(false);
         button1ReservationTables.setBorderPainted(false);
 
         ImageIcon table2ReservationTables = new ImageIcon("images/table2.png");
         JButton button2ReservationTables = new JButton("2",table2ReservationTables);
-        button2ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button2ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button2ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button2ReservationTables.setContentAreaFilled(false);
         button2ReservationTables.setBorderPainted(false);
 
         ImageIcon table3ReservationTables = new ImageIcon("images/table3.png");
         JButton button3ReservationTables = new JButton("3",table3ReservationTables);
-        button3ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button3ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button3ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button3ReservationTables.setContentAreaFilled(false);
         button3ReservationTables.setBorderPainted(false);
 
         ImageIcon table4ReservationTables = new ImageIcon("images/table4.png");
         JButton button4ReservationTables = new JButton("4",table4ReservationTables);
-        button4ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button4ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button4ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button4ReservationTables.setContentAreaFilled(false);
         button4ReservationTables.setBorderPainted(false);
 
         ImageIcon table5ReservationTables = new ImageIcon("images/table5.png");
         JButton button5ReservationTables = new JButton("5",table5ReservationTables);
-        button5ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button5ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button5ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button5ReservationTables.setContentAreaFilled(false);
         button5ReservationTables.setBorderPainted(false);
 
         ImageIcon table6ReservationTables = new ImageIcon("images/table6.png");
         JButton button6ReservationTables = new JButton("6",table6ReservationTables);
-        button6ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button6ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button6ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button6ReservationTables.setContentAreaFilled(false);
         button6ReservationTables.setBorderPainted(false);
 
         ImageIcon table7ReservationTables = new ImageIcon("images/table7.png");
         JButton button7ReservationTables = new JButton("7",table7ReservationTables);
-        button7ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button7ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button7ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button7ReservationTables.setContentAreaFilled(false);
         button7ReservationTables.setBorderPainted(false);
 
         ImageIcon table8ReservationTables = new ImageIcon("images/table8.png");
         JButton button8ReservationTables = new JButton("8",table8ReservationTables);
-        button8ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel));
+        button8ReservationTables.addActionListener(new ReservationsListener(jf, chooseDayPanel, centerChooseDay, mapViewPanel));
         button8ReservationTables.setFont(new Font("Arial", Font.PLAIN, 1));
         button8ReservationTables.setContentAreaFilled(false);
         button8ReservationTables.setBorderPainted(false);
@@ -644,66 +657,11 @@ public class usersView {
         northChooseDay.add(invNorthChooseDay);
 
         northChooseDay.setOpaque(false);
-
-
-//	GridLayout for the center
-
-        BorderLayout blCenterChooseDay = new BorderLayout();
-
-        blCenterChooseDay.setHgap(20);
-        blCenterChooseDay.setVgap(20);
-
-        JPanel centerChooseDay = new JPanel(blCenterChooseDay);
-
-
-//	Creating components for the center panel
-
-        JLabel jlChooseDay = new JLabel("Días disponibles",JLabel.CENTER);
-        jlChooseDay.setFont(new Font("Sans", Font.BOLD, 40));
-
-        FlowLayout flChooseDay = new FlowLayout();
-        flChooseDay.setAlignment(FlowLayout.CENTER);
-        flChooseDay.setVgap(50);
-
-        JPanel centerInnerPanelChooseDay = new JPanel(flChooseDay);
-        centerInnerPanelChooseDay.setOpaque(false);
-
-
-        try {
-                File reservationsTempChooseDay = new File("reservationsTemp.txt");
-                Scanner reservationsTempReaderChooseDay = new Scanner(reservationsTempChooseDay);
-
-                String dataChooseDay = reservationsTempReaderChooseDay.nextLine();
-                String[] tokensChooseDay = dataChooseDay.split(",", 2); 
-                String daysChooseDay = tokensChooseDay[1];
-
-                String[] dayChooseDay = daysChooseDay.split(",");
-
-                for(int i = 0; i < dayChooseDay.length; i++) {
-                        
-                        JButton dayBtnChooseDay = new JButton(dayChooseDay[i]);
-                        dayBtnChooseDay.setPreferredSize(new Dimension(70,70));
-                        dayBtnChooseDay.addActionListener(new selectDayListener(jf, mapViewPanel));
-                        dayBtnChooseDay.setBackground(new Color(97,104,135));
-                        centerInnerPanelChooseDay.add(dayBtnChooseDay);
-                        
-                }
-
-                reservationsTempReaderChooseDay.close();
-        
-        } catch (FileNotFoundException exc) {
-
-                System.out.println("File Not Found.");
-                exc.printStackTrace();
-
-        }
         
 
 //	Adding all the components in order to the GridLayout
 
         centerChooseDay.setOpaque(false);
-        centerChooseDay.add(jlChooseDay, BorderLayout.NORTH);
-        centerChooseDay.add(centerInnerPanelChooseDay, BorderLayout.CENTER);
 
 
 
@@ -774,6 +732,226 @@ public class usersView {
         chooseDayPanel.add(eastChooseDay, BorderLayout.EAST);
         chooseDayPanel.add(westChooseDay, BorderLayout.WEST);
         chooseDayPanel.setOpaque(false);
+
+
+        /****************************************************
+         * 						    *
+         * 	          Menu View Panel		    *
+         * 						    *
+        *****************************************************/
+
+
+
+
+        String code = "1";
+
+//      Añadimos la bara del menu superior y las acciones que la controlan
+        JMenuBar menubar = new JMenuBar();
+        JMenu menu = new JMenu();
+        JMenuItem calculator = new JMenuItem("Calculadora");
+        JMenuItem personalInfo = new JMenuItem("Informacion");
+        JMenuItem calendar = new JMenuItem("Calendario");
+        JMenuItem languaje = new JMenuItem("Idioma");
+
+        Image image = new ImageIcon("images/Options.png").getImage();
+        menu.setIcon(new ImageIcon(image));
+
+        Image image2 = new ImageIcon("images/Calculator.png").getImage();
+        calculator.setIcon(new ImageIcon(image2));
+
+        Image image4 = new ImageIcon("images/Calendar.png").getImage();
+        calendar.setIcon(new ImageIcon(image4));
+
+        Image image3 = new ImageIcon("images/PersonalInfo.png").getImage();
+        personalInfo.setIcon(new ImageIcon(image3));
+
+        Image image5 = new ImageIcon("images/Languaje.png").getImage();
+        languaje.setIcon(new ImageIcon(image5));
+
+
+        menu.add(calculator);
+        menu.add(calendar);
+        menu.add(personalInfo);
+        menu.add(languaje);
+        menubar.setLayout(new GridBagLayout());
+        menubar.add(menu);
+
+        MyJMenuListener jmListener = new MyJMenuListener(calculator, personalInfo, calendar);
+        calculator.addActionListener(jmListener);
+
+//      Creamos la primera division en dos del frame
+        JPanel jp1 = new JPanel();
+        JPanel jp2 = new JPanel();
+
+        jp1.setBackground(Color.WHITE);
+        jp2.setBackground(new Color(73,115,203));
+
+//      Creamos los botones del panel derecho
+        GridBagLayout p2gl = new GridBagLayout();
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.NONE;
+        c.insets = new Insets(50, 50, 50, 50);
+        jp2.setLayout(p2gl);
+
+//      Creamos una division del panel inferior para coger las 3/4 partes del panel izquierdo
+        GridLayout gl2 = new GridLayout(2,1);
+        jp1.setLayout(gl2);
+        JPanel topPanel = new JPanel();
+        JPanel bottomPanel = new JPanel();
+
+        topPanel.setBackground(Color.WHITE);
+
+        GridLayout gl3 = new GridLayout(2,1);
+        bottomPanel.setLayout(gl3);
+        JPanel jp3 = new JPanel();
+        JPanel jp4 = new JPanel();
+
+        jp3.setBackground(Color.WHITE);
+        jp4.setBackground(new Color(73,115,203));
+
+        c.gridx = 0;
+        c.gridy = 0;
+
+        JButton button = new JButton("BEBIDAS");
+        button.setForeground(Color.WHITE);
+        button.setPreferredSize(new Dimension(350, 100));
+        //button.setBorder(new ButtonStyle(40));
+        button.setBackground(new Color(97,104,135));
+        jp2.add(button,c);
+        menuViewListener listener1 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button.addActionListener(listener1);
+
+        c.gridx = 1;
+        c.gridy = 0;
+
+        JButton button2 = new JButton("ENTRANTES");
+        button2.setForeground(Color.WHITE);
+        button2.setPreferredSize(new Dimension(350, 100));
+        //button2.setBorder(new ButtonStyle(40));
+        button2.setBackground(new Color(97,104,135));
+        jp2.add(button2,c);
+        menuViewListener listener2 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button2.addActionListener(listener2);
+
+        c.gridx = 0;
+        c.gridy = 1;
+
+        JButton button3 = new JButton("ENSALADAS");
+        button3.setForeground(Color.WHITE);
+        button3.setPreferredSize(new Dimension(350, 100));
+        //button3.setBorder(new ButtonStyle(40));
+        button3.setBackground(new Color(97,104,135));
+        jp2.add(button3,c);
+        menuViewListener listener3 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button3.addActionListener(listener3);
+
+        c.gridx = 1;
+        c.gridy = 1;
+
+        JButton button4 = new JButton("PESCADOS");
+        button4.setForeground(Color.WHITE);
+        button4.setPreferredSize(new Dimension(350, 100));
+        //button4.setBorder(new ButtonStyle(40));
+        button4.setBackground(new Color(97,104,135));
+        jp2.add(button4,c);
+        menuViewListener listener4 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button4.addActionListener(listener4);
+
+        c.gridx = 0;
+        c.gridy = 2;
+
+        JButton button5 = new JButton("CARNES");
+        button5.setForeground(Color.WHITE);
+        button5.setPreferredSize(new Dimension(350, 100));
+        //button5.setBorder(new ButtonStyle(40));
+        button5.setBackground(new Color(97,104,135));
+        jp2.add(button5,c);
+        menuViewListener listener5 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button5.addActionListener(listener5);
+
+        c.gridx = 1;
+        c.gridy = 2;
+
+        JButton button6 = new JButton("POSTRES");
+        button6.setForeground(Color.WHITE);
+        button6.setPreferredSize(new Dimension(350, 100));
+        //button6.setBorder(new ButtonStyle(40));
+        button6.setBackground(new Color(97,104,135));
+        jp2.add(button6,c);
+        menuViewListener listener6 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button6.addActionListener(listener6);
+
+        c.gridx = 0;
+        c.gridy = 3;
+
+        JButton button7 = new JButton("MENU NIÑOS");
+        button7.setForeground(Color.WHITE);
+        button7.setPreferredSize(new Dimension(350, 100));
+        //button7.setBorder(new ButtonStyle(40));
+        button7.setBackground(new Color(97,104,135));
+        jp2.add(button7,c);
+        menuViewListener listener7 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button7.addActionListener(listener7);
+
+        c.gridx = 1;
+        c.gridy = 3;
+
+        JButton button8 = new JButton("COMBINADOS");
+        button8.setForeground(Color.WHITE);
+        button8.setPreferredSize(new Dimension(350, 100));
+        //button8.setBorder(new ButtonStyle(40));
+        button8.setBackground(new Color(97,104,135));
+        jp2.add(button8,c);
+        menuViewListener listener8 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button8.addActionListener(listener8);
+
+//      Creamos los botones que van en el inferior del panel
+        FlowLayout fl = new FlowLayout();
+
+        fl.setAlignment(FlowLayout.CENTER);
+        fl.setHgap(5);
+        fl.setVgap(100);
+
+        jp4.setLayout(fl);
+
+        JButton cancelButton = new JButton("CANCELAR CUENTA");
+        cancelButton.setForeground(Color.WHITE);
+        cancelButton.setPreferredSize(new Dimension(250, 100));
+        cancelButton.setBackground(Color.red);
+        menuPayButtonsListener cancelListener = new menuPayButtonsListener(1,jf);
+        cancelButton.addActionListener(cancelListener);
+
+        JButton paySelectedButton = new JButton("PAGAR SELECCIONADOS");
+        paySelectedButton.setForeground(Color.WHITE);
+        paySelectedButton.setPreferredSize(new Dimension(250, 100));
+        paySelectedButton.setBackground(Color.green);
+
+        JButton payAllButton = new JButton("PAGAR TODO");
+        payAllButton.setForeground(Color.WHITE);
+        payAllButton.setPreferredSize(new Dimension(250, 100));
+        payAllButton.setBackground(Color.green);
+        menuPayButtonsListener payAllListener = new menuPayButtonsListener(2,jf);
+        payAllButton.addActionListener(payAllListener);
+
+//      Añadimos cada elemento a su panel
+        jp4.add(cancelButton);
+        jp4.add(paySelectedButton);
+        jp4.add(payAllButton);
+
+        bottomPanel.add(jp3);
+        bottomPanel.add(jp4);
+
+//      LEEMOS DE LA BASE DE DATOS LO QUE LLEVA EN LA CUENTA Y LO PONEMOS EN EL PANEL SUPERIOR BLANCO
+
+        jp1.add(topPanel);
+        jp1.add(bottomPanel);
+
+        centralPanel.add(jp1);
+        centralPanel.add(jp2);
+
+
+
+
 
 
         /****************************************************

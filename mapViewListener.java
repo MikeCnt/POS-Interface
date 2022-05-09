@@ -66,6 +66,11 @@ public class mapViewListener implements ActionListener{
                 System.out.println("An error occurred.");
                 io.printStackTrace();
             } 
+
+            jp.setVisible(true); //Panel visible
+            jf.setContentPane(jp); //Indicar panel como principal
+            jf.revalidate();
+            jf.repaint();
         }
         
         

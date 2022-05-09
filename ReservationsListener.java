@@ -9,21 +9,26 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.io.*;
 import javax.swing.*;
+import java.awt.*;
 
 public class ReservationsListener implements ActionListener{
     
     JFrame jf;
     JPanel jp;
+    JPanel sub;
+    JPanel newjp;
     
-    public ReservationsListener(JFrame jf, JPanel jp) {
+    public ReservationsListener(JFrame jf, JPanel jp, JPanel sub, JPanel newjp) {
 
         this.jf = jf;
         this.jp = jp;
+        this.sub = sub;
+        this.newjp = newjp;
     }
     
-    public ReservationsListener() {
+    public ReservationsListener(JFrame jf, JPanel jp) {
 
-        this(null, null);
+        this(jf, jp, null, null);
     }
     
     @Override
@@ -67,6 +72,56 @@ public class ReservationsListener implements ActionListener{
                 System.out.println("An error occurred.");
                 io.printStackTrace();
             }
+
+            sub.removeAll();
+
+
+//	        Creating components for the center panel
+
+            String text = "Días disponibles Mesa ".concat(e.getActionCommand());
+
+            JLabel jlChooseDay = new JLabel(text,JLabel.CENTER);
+            jlChooseDay.setFont(new Font("Sans", Font.BOLD, 40));
+
+            FlowLayout flChooseDay = new FlowLayout();
+            flChooseDay.setAlignment(FlowLayout.CENTER);
+            flChooseDay.setVgap(50);
+
+            JPanel centerInnerPanelChooseDay = new JPanel(flChooseDay);
+            centerInnerPanelChooseDay.setOpaque(false);
+
+            try {
+                    File reservationsTempChooseDay = new File("reservationsTemp.txt");
+                    Scanner reservationsTempReaderChooseDay = new Scanner(reservationsTempChooseDay);
+
+                    String dataChooseDay = reservationsTempReaderChooseDay.nextLine();
+                    String[] tokensChooseDay = dataChooseDay.split(",", 2); 
+                    String daysChooseDay = tokensChooseDay[1];
+
+                    String[] dayChooseDay = daysChooseDay.split(",");
+
+                    for(int i = 0; i < dayChooseDay.length; i++) {
+                            
+                            JButton dayBtnChooseDay = new JButton(dayChooseDay[i]);
+                            dayBtnChooseDay.setPreferredSize(new Dimension(70,70));
+                            dayBtnChooseDay.addActionListener(new selectDayListener(jf, newjp));
+                            dayBtnChooseDay.setBackground(new Color(97,104,135));
+                            centerInnerPanelChooseDay.add(dayBtnChooseDay);
+                            
+                    }
+
+                    reservationsTempReaderChooseDay.close();
+            
+            } catch (FileNotFoundException exc) {
+
+                    System.out.println("File Not Found.");
+                    exc.printStackTrace();
+
+            }
+
+
+            sub.add(jlChooseDay, BorderLayout.NORTH);
+            sub.add(centerInnerPanelChooseDay, BorderLayout.CENTER);
 
 			jp.setVisible(true); //Panel visible
 			jf.setContentPane(jp); //Indicar panel como principal
