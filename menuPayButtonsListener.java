@@ -31,36 +31,32 @@ public class menuPayButtonsListener implements ActionListener{
 
                 try {
 
-                    File temp = new File("bill.txt");
-                    File output = new File("temp.txt"); // SOBREESCRIBIREMOS ESTE
-                    FileReader fr = new FileReader(temp);
+                    File f = new File("bill.txt");
+                    FileReader fr = new FileReader(f);
                     BufferedReader br = new BufferedReader(fr);
 
-                    FileWriter fw1 = new FileWriter(temp, true);
-                    FileWriter fw2 = new FileWriter(output, true);
-                    BufferedWriter bw1 = new BufferedWriter(fw1);
+                    FileWriter fw = new FileWriter(f,true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+
+                    File temp = new File("temp.txt");
+                    FileWriter fw2 = new FileWriter(temp, true);
                     BufferedWriter bw2 = new BufferedWriter(fw2);
 
                     String line;
                     while((line = br.readLine()) != null){
                         String[] token = line.split(",");
 
-                        if(Integer.toString(code) != token[0]){
+                        if(!Integer.toString(code).equals(token[0])){
                             // BORRAMOS EL QUE COINCIDA CON EL CODIGO
                             bw2.write(line);
                         }
                     }
 
-                    bw1.write(""); // VACIAMOS EL PPAL
-                    String aux;
-                    while((aux = br.readLine()) != null){
-                        bw1.write(aux);
-                    }
+                    f.delete();
+                    temp.renameTo(f);
                     
-                    output.delete();
-
                     fr.close();
-                    bw1.close();
+                    bw.close();
                     bw2.close();
 
                 } catch (IOException io) {
@@ -112,27 +108,31 @@ public class menuPayButtonsListener implements ActionListener{
             
             if (ret == 0) {
                 
-                String option = e.getActionCommand();
-
-
                 try {
 
-                    BufferedWriter tempWriter = new BufferedWriter(new FileWriter("temp.txt", true));
+                    File f = new File("bill.txt");
+                    FileReader fr = new FileReader(f);
+                    BufferedReader br = new BufferedReader(fr);
+                    String finalPrice = null;
 
-                    tempWriter.write("\n");
-                    tempWriter.write(option);
-                    tempWriter.close();
+                    String line;
+                    while((line = br.readLine()) != null){
+
+                        String[] token = line.split(",");
+
+                        if(Integer.toString(code).equals(token[0])){
+
+                            finalPrice = token[(token.length)-1];
+                        }
+                    }
+                    System.out.println(finalPrice);
+                    br.close();
                 
                 } catch (IOException io) {
                     System.out.println("An error occurred.");
                     io.printStackTrace();
                 }
             }
-            else {
-                System.out.println("Todos No");
-            }
         }
-                
-        
     }
 }

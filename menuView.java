@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.util.*;
 
 /**
  * Menu view for the POS (Point of Sale), where we can select the items of the costumer's menu
@@ -10,6 +12,7 @@ public class menuView {
 
         JFrame jf = new JFrame();
         jf.setTitle("Vista Menu");
+        String code = "1";
 
 //      Añadimos la bara del menu superior y las acciones que la controlan
         JMenuBar menubar = new JMenuBar();
@@ -61,103 +64,6 @@ public class menuView {
         c.insets = new Insets(50, 50, 50, 50);
         jp2.setLayout(p2gl);
 
-        c.gridx = 0;
-        c.gridy = 0;
-
-        JButton button = new JButton("BEBIDAS");
-        button.setForeground(Color.WHITE);
-        button.setPreferredSize(new Dimension(350, 100));
-        //button.setBorder(new ButtonStyle(40));
-        button.setBackground(new Color(97,104,135));
-        jp2.add(button,c);
-        menuViewListener listener1 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button.addActionListener(listener1);
-
-        c.gridx = 1;
-        c.gridy = 0;
-
-        JButton button2 = new JButton("ENTRANTES");
-        button2.setForeground(Color.WHITE);
-        button2.setPreferredSize(new Dimension(350, 100));
-        //button2.setBorder(new ButtonStyle(40));
-        button2.setBackground(new Color(97,104,135));
-        jp2.add(button2,c);
-        menuViewListener listener2 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button2.addActionListener(listener2);
-
-        c.gridx = 0;
-        c.gridy = 1;
-
-        JButton button3 = new JButton("ENSALADAS");
-        button3.setForeground(Color.WHITE);
-        button3.setPreferredSize(new Dimension(350, 100));
-        //button3.setBorder(new ButtonStyle(40));
-        button3.setBackground(new Color(97,104,135));
-        jp2.add(button3,c);
-        menuViewListener listener3 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button3.addActionListener(listener3);
-
-        c.gridx = 1;
-        c.gridy = 1;
-
-        JButton button4 = new JButton("PESCADOS");
-        button4.setForeground(Color.WHITE);
-        button4.setPreferredSize(new Dimension(350, 100));
-        //button4.setBorder(new ButtonStyle(40));
-        button4.setBackground(new Color(97,104,135));
-        jp2.add(button4,c);
-        menuViewListener listener4 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button4.addActionListener(listener4);
-
-        c.gridx = 0;
-        c.gridy = 2;
-
-        JButton button5 = new JButton("CARNES");
-        button5.setForeground(Color.WHITE);
-        button5.setPreferredSize(new Dimension(350, 100));
-        //button5.setBorder(new ButtonStyle(40));
-        button5.setBackground(new Color(97,104,135));
-        jp2.add(button5,c);
-        menuViewListener listener5 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button5.addActionListener(listener5);
-
-        c.gridx = 1;
-        c.gridy = 2;
-
-        JButton button6 = new JButton("POSTRES");
-        button6.setForeground(Color.WHITE);
-        button6.setPreferredSize(new Dimension(350, 100));
-        //button6.setBorder(new ButtonStyle(40));
-        button6.setBackground(new Color(97,104,135));
-        jp2.add(button6,c);
-        menuViewListener listener6 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button6.addActionListener(listener6);
-
-        c.gridx = 0;
-        c.gridy = 3;
-
-        JButton button7 = new JButton("MENU NIÑOS");
-        button7.setForeground(Color.WHITE);
-        button7.setPreferredSize(new Dimension(350, 100));
-        //button7.setBorder(new ButtonStyle(40));
-        button7.setBackground(new Color(97,104,135));
-        jp2.add(button7,c);
-        menuViewListener listener7 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button7.addActionListener(listener7);
-
-        c.gridx = 1;
-        c.gridy = 3;
-
-        JButton button8 = new JButton("COMBINADOS");
-        button8.setForeground(Color.WHITE);
-        button8.setPreferredSize(new Dimension(350, 100));
-        //button8.setBorder(new ButtonStyle(40));
-        button8.setBackground(new Color(97,104,135));
-        jp2.add(button8,c);
-        menuViewListener listener8 = new menuViewListener(centralPanel,jp1,jp2,jf);
-        button8.addActionListener(listener8);
-
-        
 //      Creamos una division del panel inferior para coger las 3/4 partes del panel izquierdo
         GridLayout gl2 = new GridLayout(2,1);
         jp1.setLayout(gl2);
@@ -173,6 +79,102 @@ public class menuView {
 
         jp3.setBackground(Color.WHITE);
         jp4.setBackground(new Color(73,115,203));
+
+        c.gridx = 0;
+        c.gridy = 0;
+
+        JButton button = new JButton("BEBIDAS");
+        button.setForeground(Color.WHITE);
+        button.setPreferredSize(new Dimension(350, 100));
+        //button.setBorder(new ButtonStyle(40));
+        button.setBackground(new Color(97,104,135));
+        jp2.add(button,c);
+        menuViewListener listener1 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button.addActionListener(listener1);
+
+        c.gridx = 1;
+        c.gridy = 0;
+
+        JButton button2 = new JButton("ENTRANTES");
+        button2.setForeground(Color.WHITE);
+        button2.setPreferredSize(new Dimension(350, 100));
+        //button2.setBorder(new ButtonStyle(40));
+        button2.setBackground(new Color(97,104,135));
+        jp2.add(button2,c);
+        menuViewListener listener2 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button2.addActionListener(listener2);
+
+        c.gridx = 0;
+        c.gridy = 1;
+
+        JButton button3 = new JButton("ENSALADAS");
+        button3.setForeground(Color.WHITE);
+        button3.setPreferredSize(new Dimension(350, 100));
+        //button3.setBorder(new ButtonStyle(40));
+        button3.setBackground(new Color(97,104,135));
+        jp2.add(button3,c);
+        menuViewListener listener3 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button3.addActionListener(listener3);
+
+        c.gridx = 1;
+        c.gridy = 1;
+
+        JButton button4 = new JButton("PESCADOS");
+        button4.setForeground(Color.WHITE);
+        button4.setPreferredSize(new Dimension(350, 100));
+        //button4.setBorder(new ButtonStyle(40));
+        button4.setBackground(new Color(97,104,135));
+        jp2.add(button4,c);
+        menuViewListener listener4 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button4.addActionListener(listener4);
+
+        c.gridx = 0;
+        c.gridy = 2;
+
+        JButton button5 = new JButton("CARNES");
+        button5.setForeground(Color.WHITE);
+        button5.setPreferredSize(new Dimension(350, 100));
+        //button5.setBorder(new ButtonStyle(40));
+        button5.setBackground(new Color(97,104,135));
+        jp2.add(button5,c);
+        menuViewListener listener5 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button5.addActionListener(listener5);
+
+        c.gridx = 1;
+        c.gridy = 2;
+
+        JButton button6 = new JButton("POSTRES");
+        button6.setForeground(Color.WHITE);
+        button6.setPreferredSize(new Dimension(350, 100));
+        //button6.setBorder(new ButtonStyle(40));
+        button6.setBackground(new Color(97,104,135));
+        jp2.add(button6,c);
+        menuViewListener listener6 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button6.addActionListener(listener6);
+
+        c.gridx = 0;
+        c.gridy = 3;
+
+        JButton button7 = new JButton("MENU NIÑOS");
+        button7.setForeground(Color.WHITE);
+        button7.setPreferredSize(new Dimension(350, 100));
+        //button7.setBorder(new ButtonStyle(40));
+        button7.setBackground(new Color(97,104,135));
+        jp2.add(button7,c);
+        menuViewListener listener7 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button7.addActionListener(listener7);
+
+        c.gridx = 1;
+        c.gridy = 3;
+
+        JButton button8 = new JButton("COMBINADOS");
+        button8.setForeground(Color.WHITE);
+        button8.setPreferredSize(new Dimension(350, 100));
+        //button8.setBorder(new ButtonStyle(40));
+        button8.setBackground(new Color(97,104,135));
+        jp2.add(button8,c);
+        menuViewListener listener8 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        button8.addActionListener(listener8);
 
 //      Creamos los botones que van en el inferior del panel
         FlowLayout fl = new FlowLayout();
@@ -199,6 +201,8 @@ public class menuView {
         payAllButton.setForeground(Color.WHITE);
         payAllButton.setPreferredSize(new Dimension(250, 100));
         payAllButton.setBackground(Color.green);
+        menuPayButtonsListener payAllListener = new menuPayButtonsListener(2,jf);
+        payAllButton.addActionListener(payAllListener);
 
 //      Añadimos cada elemento a su panel
         jp4.add(cancelButton);
@@ -207,6 +211,8 @@ public class menuView {
 
         bottomPanel.add(jp3);
         bottomPanel.add(jp4);
+
+//      LEEMOS DE LA BASE DE DATOS LO QUE LLEVA EN LA CUENTA Y LO PONEMOS EN EL PANEL SUPERIOR BLANCO
 
         jp1.add(topPanel);
         jp1.add(bottomPanel);

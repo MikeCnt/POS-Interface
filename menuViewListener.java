@@ -10,12 +10,14 @@ public class menuViewListener implements ActionListener{
     private JPanel leftPanel;
     private JPanel rightPanel;
     private JFrame frame;
+    private String code;
 
-    public menuViewListener(JPanel centralPanel, JPanel leftPanel, JPanel rightPanel, JFrame frame){
+    public menuViewListener(JPanel centralPanel, JPanel leftPanel, JPanel rightPanel, JFrame frame, String code){
         this.centralPanel = centralPanel;
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
         this.frame = frame;
+        this.code = code;
         
     }
 
@@ -82,6 +84,11 @@ public class menuViewListener implements ActionListener{
             menuButtonListener listener4 = new menuButtonListener("AGUA",centralPanel,rightPanel,newPanel,frame);
             button3.addActionListener(listener4);
 
+            readBill readBill = new readBill();
+            Vector bill = readBill.readDBdata("1");
+
+            //      Creamos una division del panel inferior para coger las 3/4 partes del panel izquierdo
+        
             centralPanel.remove(rightPanel);
             centralPanel.add(newPanel);
 

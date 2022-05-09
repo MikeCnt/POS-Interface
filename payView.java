@@ -123,7 +123,7 @@ public class payView {
 
 
 		jf.setSize(1920, 1080);
-		jf.getContentPane().setBackground(Color.BLUE);
+		jf.getContentPane().setBackground(new Color(73,115,203));
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setVisible(true);
 
