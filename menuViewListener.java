@@ -10,14 +10,12 @@ public class menuViewListener implements ActionListener{
     private JPanel leftPanel;
     private JPanel rightPanel;
     private JFrame frame;
-    private String code;
 
-    public menuViewListener(JPanel centralPanel, JPanel leftPanel, JPanel rightPanel, JFrame frame, String code){
+    public menuViewListener(JPanel centralPanel, JPanel leftPanel, JPanel rightPanel, JFrame frame){
         this.centralPanel = centralPanel;
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
         this.frame = frame;
-        this.code = code;
         
     }
 
@@ -84,10 +82,17 @@ public class menuViewListener implements ActionListener{
             menuButtonListener listener4 = new menuButtonListener("AGUA",centralPanel,rightPanel,newPanel,frame);
             button3.addActionListener(listener4);
 
-            readBill readBill = new readBill();
-            Vector bill = readBill.readDBdata("1");
+            c.gridx = 1;
+            c.gridy = 2;
 
-            //      Creamos una division del panel inferior para coger las 3/4 partes del panel izquierdo
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
+
+//      Creamos una division del panel inferior para coger las 3/4 partes del panel izquierdo
         
             centralPanel.remove(rightPanel);
             centralPanel.add(newPanel);
@@ -144,6 +149,16 @@ public class menuViewListener implements ActionListener{
             menuButtonListener listener3 = new menuButtonListener("PAN CON ALIOLI",centralPanel,rightPanel,newPanel,frame);
             button2.addActionListener(listener3);
 
+            c.gridx = 1;
+            c.gridy = 2;
+
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
+
             centralPanel.remove(rightPanel);
             centralPanel.add(newPanel);
 
@@ -189,6 +204,7 @@ public class menuViewListener implements ActionListener{
             c.gridx = 1;
             c.gridy = 1;
 
+
             menuButtonListener listener1 = new menuButtonListener("ENSALADA MIXTA",centralPanel,rightPanel,newPanel,frame);
             button.addActionListener(listener1);
 
@@ -197,6 +213,16 @@ public class menuViewListener implements ActionListener{
 
             menuButtonListener listener3 = new menuButtonListener("ENSALADA DE LA CASA",centralPanel,rightPanel,newPanel,frame);
             button2.addActionListener(listener3);
+
+            c.gridx = 1;
+            c.gridy = 2;
+
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
 
             centralPanel.remove(rightPanel);
             centralPanel.add(newPanel);
@@ -261,6 +287,16 @@ public class menuViewListener implements ActionListener{
 
             menuButtonListener listener4 = new menuButtonListener("CALAMARES",centralPanel,rightPanel,newPanel,frame);
             button3.addActionListener(listener4);
+
+            c.gridx = 1;
+            c.gridy = 2;
+
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
 
 
             centralPanel.remove(rightPanel);
@@ -327,6 +363,16 @@ public class menuViewListener implements ActionListener{
             menuButtonListener listener4 = new menuButtonListener("PLUMA",centralPanel,rightPanel,newPanel,frame);
             button3.addActionListener(listener4);
 
+            c.gridx = 1;
+            c.gridy = 2;
+
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
+
             
             centralPanel.remove(rightPanel);
             centralPanel.add(newPanel);
@@ -379,6 +425,16 @@ public class menuViewListener implements ActionListener{
 
             menuButtonListener listener3 = new menuButtonListener("ARROZ CON LECHE",centralPanel,rightPanel,newPanel,frame);
             button2.addActionListener(listener3);
+
+            c.gridx = 1;
+            c.gridy = 2;
+
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
 
             
             centralPanel.remove(rightPanel);
@@ -433,6 +489,16 @@ public class menuViewListener implements ActionListener{
             menuButtonListener listener3 = new menuButtonListener("FILETE EMPANADO",centralPanel,rightPanel,newPanel,frame);
             button2.addActionListener(listener3);
 
+            c.gridx = 1;
+            c.gridy = 2;
+
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
+
             
             centralPanel.remove(rightPanel);
             centralPanel.add(newPanel);
@@ -486,11 +552,30 @@ public class menuViewListener implements ActionListener{
             menuButtonListener listener3 = new menuButtonListener("PLATO CAMPERO",centralPanel,rightPanel,newPanel,frame);
             button2.addActionListener(listener3);
 
+            c.gridx = 1;
+            c.gridy = 2;
+
+            JButton buttonB = new JButton("Atras");
+            buttonB.setForeground(Color.WHITE);
+            buttonB.setPreferredSize(new Dimension(100,50));
+            buttonB.setBackground(new Color(97,104,135));
+            newPanel.add(buttonB,c);
+            buttonB.addActionListener(new menuViewListener(centralPanel,leftPanel, rightPanel, frame));
+
             
             centralPanel.remove(rightPanel);
             centralPanel.add(newPanel);
 
             frame.revalidate();
+            
+        }else if (e.getActionCommand().equals("Atras") || e.getActionCommand().equals("Back")) {
+            
+			centralPanel.remove(1);
+            centralPanel.add(rightPanel);
+            
+            centralPanel.setVisible(true); //Panel visible
+			frame.setContentPane(centralPanel); //Indicar panel como principal
+			frame.revalidate();
         }
     }
 }

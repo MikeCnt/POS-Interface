@@ -11,6 +11,13 @@ public class menuButtonListener implements ActionListener{
     private JPanel newPanel;
     private JFrame frame;
     
+    public menuButtonListener(String code, String name){
+
+        addItem(code);
+        addItem(name);
+
+    }
+
     public menuButtonListener(String item, JPanel centralPanel, JPanel oldPanel, JPanel newPanel, JFrame frame){
         this.item = item;
         this.centralPanel = centralPanel;
@@ -19,7 +26,7 @@ public class menuButtonListener implements ActionListener{
         this.frame = frame;
     }
 
-    private void addItem(String item){
+    public void addItem(String item){
 
         File f = null;
         FileWriter fw = null;
@@ -50,11 +57,5 @@ public class menuButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
 
         addItem(item);
-
-        // DEBERIA IR HACIA EL PANEL ANTERIOR
-        centralPanel.remove(newPanel);
-        centralPanel.add(oldPanel);
-        frame.revalidate();
-
     }
 }

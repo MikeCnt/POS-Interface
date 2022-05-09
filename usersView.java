@@ -74,6 +74,11 @@ public class usersView {
 	JPanel centralPanel = new JPanel(gl);
 
 
+//	payViewPanel
+
+        JPanel outter = new JPanel(new BorderLayout());
+
+
 
         /****************************************************
          * 						    *
@@ -317,7 +322,7 @@ public class usersView {
 
         JButton backMapView = new JButton("Atras");
         backMapView.setPreferredSize(new Dimension(100,50));
-        backMapView.addActionListener(new mapViewListener());
+        backMapView.addActionListener(new mapViewListener(jf, usersViewPanel));
         backMapView.setBackground(new Color(97,104,135));
         
         southMapView.add(backMapView);
@@ -818,7 +823,7 @@ public class usersView {
         //button.setBorder(new ButtonStyle(40));
         button.setBackground(new Color(97,104,135));
         jp2.add(button,c);
-        menuViewListener listener1 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener1 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button.addActionListener(listener1);
 
         c.gridx = 1;
@@ -830,7 +835,7 @@ public class usersView {
         //button2.setBorder(new ButtonStyle(40));
         button2.setBackground(new Color(97,104,135));
         jp2.add(button2,c);
-        menuViewListener listener2 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener2 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button2.addActionListener(listener2);
 
         c.gridx = 0;
@@ -842,7 +847,7 @@ public class usersView {
         //button3.setBorder(new ButtonStyle(40));
         button3.setBackground(new Color(97,104,135));
         jp2.add(button3,c);
-        menuViewListener listener3 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener3 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button3.addActionListener(listener3);
 
         c.gridx = 1;
@@ -854,7 +859,7 @@ public class usersView {
         //button4.setBorder(new ButtonStyle(40));
         button4.setBackground(new Color(97,104,135));
         jp2.add(button4,c);
-        menuViewListener listener4 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener4 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button4.addActionListener(listener4);
 
         c.gridx = 0;
@@ -866,7 +871,7 @@ public class usersView {
         //button5.setBorder(new ButtonStyle(40));
         button5.setBackground(new Color(97,104,135));
         jp2.add(button5,c);
-        menuViewListener listener5 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener5 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button5.addActionListener(listener5);
 
         c.gridx = 1;
@@ -878,7 +883,7 @@ public class usersView {
         //button6.setBorder(new ButtonStyle(40));
         button6.setBackground(new Color(97,104,135));
         jp2.add(button6,c);
-        menuViewListener listener6 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener6 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button6.addActionListener(listener6);
 
         c.gridx = 0;
@@ -890,7 +895,7 @@ public class usersView {
         //button7.setBorder(new ButtonStyle(40));
         button7.setBackground(new Color(97,104,135));
         jp2.add(button7,c);
-        menuViewListener listener7 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener7 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button7.addActionListener(listener7);
 
         c.gridx = 1;
@@ -902,8 +907,18 @@ public class usersView {
         //button8.setBorder(new ButtonStyle(40));
         button8.setBackground(new Color(97,104,135));
         jp2.add(button8,c);
-        menuViewListener listener8 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener8 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button8.addActionListener(listener8);
+
+        c.gridx = 1;
+        c.gridy = 4;
+
+        JButton buttonB = new JButton("Atras");
+        buttonB.setForeground(Color.WHITE);
+        buttonB.setPreferredSize(new Dimension(100,50));
+        buttonB.setBackground(new Color(97,104,135));
+        jp2.add(buttonB,c);
+        buttonB.addActionListener(new ReservationsListener(jf, usersViewPanel));
 
 //      Creamos los botones que van en el inferior del panel
         FlowLayout fl = new FlowLayout();
@@ -918,7 +933,7 @@ public class usersView {
         cancelButton.setForeground(Color.WHITE);
         cancelButton.setPreferredSize(new Dimension(250, 100));
         cancelButton.setBackground(Color.red);
-        menuPayButtonsListener cancelListener = new menuPayButtonsListener(1,jf);
+        menuPayButtonsListener cancelListener = new menuPayButtonsListener(1,jf,usersViewPanel);
         cancelButton.addActionListener(cancelListener);
 
         JButton paySelectedButton = new JButton("PAGAR SELECCIONADOS");
@@ -930,7 +945,7 @@ public class usersView {
         payAllButton.setForeground(Color.WHITE);
         payAllButton.setPreferredSize(new Dimension(250, 100));
         payAllButton.setBackground(Color.green);
-        menuPayButtonsListener payAllListener = new menuPayButtonsListener(2,jf);
+        menuPayButtonsListener payAllListener = new menuPayButtonsListener(2,jf,outter);
         payAllButton.addActionListener(payAllListener);
 
 //      Añadimos cada elemento a su panel
@@ -950,6 +965,110 @@ public class usersView {
         centralPanel.add(jp2);
 
 
+        /****************************************************
+         * 						    *
+         * 	          Pay View Panel		    *
+         * 						    *
+        *****************************************************/
+        
+
+//	JPanel with GridLayout to put on the text and buttons
+
+        JPanel jp = new JPanel();
+
+        GridLayout glPayView = new GridLayout(7,1);
+        glPayView.setHgap(5);
+        glPayView.setVgap(5);
+
+        jp.setLayout(glPayView);
+
+
+//	JLabels with payment info
+
+        String text = "A PAGAR\n";
+
+        float value = 00.00f;
+        String valueText = String.format("%.02f", value);
+        String aux = valueText.concat(" €");
+
+        JLabel first = new JLabel(text,JLabel.CENTER);
+        first.setFont(new Font("Sans", Font.BOLD, 40));
+
+        JLabel second = new JLabel(aux, JLabel.CENTER);
+        second.setFont(new Font("Sans", Font.BOLD, 40));
+
+
+//	Invisible JButton to separate price from buttons
+
+        JButton inv = new JButton();
+        inv.setOpaque(false);
+        inv.setContentAreaFilled(false);
+        inv.setBorderPainted(false);
+
+
+//	Buttons for payment methods
+
+        FlowLayout flPayView = new FlowLayout();
+        flPayView.setAlignment(FlowLayout.CENTER);
+        flPayView.setHgap(200);
+        JPanel inner = new JPanel(flPayView);
+
+        JButton cash = new JButton("EFECTIVO");
+        cash.setFont(new Font("Arial", Font.PLAIN, 30));
+        cash.addActionListener(new payViewListener(1, jf, usersViewPanel));
+        cash.setBackground(new Color(97,104,135));
+
+        JButton card = new JButton("TARJETA");
+        card.setFont(new Font("Arial", Font.PLAIN, 30));
+        card.addActionListener(new payViewListener(2, jf, usersViewPanel));
+        card.setBackground(new Color(97,104,135));
+
+        inner.add(cash);
+        inner.add(card);
+
+
+
+//	Adding all the components to the GridLayout JPanel
+
+        jp.add(first);
+        jp.add(second);
+        jp.add(inv);
+        jp.add(inner);
+
+
+//	Creating invisible buttons to separate the white box from the borders
+
+        JButton northInv = new JButton();
+        northInv.setPreferredSize(new Dimension(80,80));
+        northInv.setOpaque(false);
+        northInv.setContentAreaFilled(false);
+        northInv.setBorderPainted(false);
+        JButton southInv = new JButton();
+        southInv.setPreferredSize(new Dimension(80,80));
+        southInv.setOpaque(false);
+        southInv.setContentAreaFilled(false);
+        southInv.setBorderPainted(false);
+        JButton eastInv = new JButton();
+        eastInv.setPreferredSize(new Dimension(100,100));
+        eastInv.setOpaque(false);
+        eastInv.setContentAreaFilled(false);
+        eastInv.setBorderPainted(false);
+        JButton westInv = new JButton();
+        westInv.setPreferredSize(new Dimension(100,100));
+        westInv.setOpaque(false);
+        westInv.setContentAreaFilled(false);
+        westInv.setBorderPainted(false);
+
+
+//	Adding all the components to the BorderLayout JPanel
+
+        outter.setOpaque(false);
+        
+        outter.add(jp, BorderLayout.CENTER);
+        outter.add(northInv, BorderLayout.NORTH);
+        outter.add(southInv, BorderLayout.SOUTH);
+        outter.add(eastInv, BorderLayout.EAST);
+        outter.add(westInv, BorderLayout.WEST);
 
 
 
@@ -963,12 +1082,14 @@ public class usersView {
 
 
         jf.setBackground(new Color(90,142,253));
-        jf.revalidate();
-        jf.repaint();
 
         jf.setSize(1920, 1080);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
+
+        jf.setJMenuBar(menubar);
+        jf.revalidate();
+        jf.repaint();
 
     }
 }

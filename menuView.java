@@ -13,6 +13,9 @@ public class menuView {
         JFrame jf = new JFrame();
         jf.setTitle("Vista Menu");
         String code = "1";
+        String name = "Antonio";
+
+        menuButtonListener init = new menuButtonListener(code, name);
 
 //      Añadimos la bara del menu superior y las acciones que la controlan
         JMenuBar menubar = new JMenuBar();
@@ -89,7 +92,7 @@ public class menuView {
         //button.setBorder(new ButtonStyle(40));
         button.setBackground(new Color(97,104,135));
         jp2.add(button,c);
-        menuViewListener listener1 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener1 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button.addActionListener(listener1);
 
         c.gridx = 1;
@@ -101,7 +104,7 @@ public class menuView {
         //button2.setBorder(new ButtonStyle(40));
         button2.setBackground(new Color(97,104,135));
         jp2.add(button2,c);
-        menuViewListener listener2 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener2 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button2.addActionListener(listener2);
 
         c.gridx = 0;
@@ -113,7 +116,7 @@ public class menuView {
         //button3.setBorder(new ButtonStyle(40));
         button3.setBackground(new Color(97,104,135));
         jp2.add(button3,c);
-        menuViewListener listener3 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener3 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button3.addActionListener(listener3);
 
         c.gridx = 1;
@@ -125,7 +128,7 @@ public class menuView {
         //button4.setBorder(new ButtonStyle(40));
         button4.setBackground(new Color(97,104,135));
         jp2.add(button4,c);
-        menuViewListener listener4 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener4 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button4.addActionListener(listener4);
 
         c.gridx = 0;
@@ -137,7 +140,7 @@ public class menuView {
         //button5.setBorder(new ButtonStyle(40));
         button5.setBackground(new Color(97,104,135));
         jp2.add(button5,c);
-        menuViewListener listener5 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener5 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button5.addActionListener(listener5);
 
         c.gridx = 1;
@@ -149,7 +152,7 @@ public class menuView {
         //button6.setBorder(new ButtonStyle(40));
         button6.setBackground(new Color(97,104,135));
         jp2.add(button6,c);
-        menuViewListener listener6 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener6 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button6.addActionListener(listener6);
 
         c.gridx = 0;
@@ -161,7 +164,7 @@ public class menuView {
         //button7.setBorder(new ButtonStyle(40));
         button7.setBackground(new Color(97,104,135));
         jp2.add(button7,c);
-        menuViewListener listener7 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener7 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button7.addActionListener(listener7);
 
         c.gridx = 1;
@@ -173,7 +176,7 @@ public class menuView {
         //button8.setBorder(new ButtonStyle(40));
         button8.setBackground(new Color(97,104,135));
         jp2.add(button8,c);
-        menuViewListener listener8 = new menuViewListener(centralPanel,topPanel,jp2,jf,code);
+        menuViewListener listener8 = new menuViewListener(centralPanel,topPanel,jp2,jf);
         button8.addActionListener(listener8);
 
 //      Creamos los botones que van en el inferior del panel

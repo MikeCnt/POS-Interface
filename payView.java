@@ -61,19 +61,13 @@ public class payView {
 		fl.setHgap(200);
 		JPanel inner = new JPanel(fl);
 
-		ImageIcon cashBtn = new ImageIcon("images/efectivoButton.png");
-		JButton cash = new JButton("EFECTIVO", cashBtn);
-		cash.setFont(new Font("Arial", Font.PLAIN, 1));
+		JButton cash = new JButton("EFECTIVO");
+		cash.setFont(new Font("Arial", Font.PLAIN, 20));
 		cash.addActionListener(new payViewListener(inner));
-		cash.setContentAreaFilled(false);
-		cash.setBorderPainted(false);
 
-		ImageIcon cardBtn = new ImageIcon("images/tarjetaButton.png");
-		JButton card = new JButton("TARJETA", cardBtn);
-		card.setFont(new Font("Arial", Font.PLAIN, 1));
+		JButton card = new JButton("TARJETA");
+		card.setFont(new Font("Arial", Font.PLAIN, 20));
 		card.addActionListener(new payViewListener(inner));
-		card.setContentAreaFilled(false);
-		card.setBorderPainted(false);
 
 		inner.add(cash);
 		inner.add(card);

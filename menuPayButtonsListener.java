@@ -12,10 +12,12 @@ public class menuPayButtonsListener implements ActionListener{
 	
 	int code;
     JFrame frame;
+    JPanel jp;
 
-    public menuPayButtonsListener(int code, JFrame frame) {
+    public menuPayButtonsListener(int code, JFrame frame, JPanel jp) {
         this.code = code;
         this.frame = frame;
+        this.jp = jp;
     }
     
     @Override
@@ -134,5 +136,9 @@ public class menuPayButtonsListener implements ActionListener{
                 }
             }
         }
+            
+        jp.setVisible(true); //Panel visible
+        frame.setContentPane(jp); //Indicar panel como principal
+        frame.revalidate();
     }
 }

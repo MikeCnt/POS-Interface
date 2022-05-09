@@ -30,7 +30,11 @@ public class mapViewListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if (e.getActionCommand().equals("Atras") || e.getActionCommand().equals("Back")) {
-            System.out.println("Atras");
+
+            jp.setVisible(true); //Panel visible
+            jf.setContentPane(jp); //Indicar panel como principal
+            jf.revalidate();
+            jf.repaint();
         }
         else if (e.getActionCommand().equals("Reservas") || e.getActionCommand().equals("Bookings")) {
 
