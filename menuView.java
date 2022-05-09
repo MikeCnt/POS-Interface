@@ -17,8 +17,7 @@ public class menuView {
         JMenuItem calculator = new JMenuItem("Calculadora");
         JMenuItem personalInfo = new JMenuItem("Informacion");
         JMenuItem calendar = new JMenuItem("Calendario");
-
-        menubar.add(Box.createHorizontalGlue());
+        JMenuItem languaje = new JMenuItem("Idioma");
 
         Image image = new ImageIcon("images/Options.png").getImage();
         menu.setIcon(new ImageIcon(image));
@@ -26,15 +25,20 @@ public class menuView {
         Image image2 = new ImageIcon("images/Calculator.png").getImage();
         calculator.setIcon(new ImageIcon(image2));
 
-        Image image3 = new ImageIcon("images/PersonalInfo.png").getImage();
-        personalInfo.setIcon(new ImageIcon(image3));
-
         Image image4 = new ImageIcon("images/Calendar.png").getImage();
         calendar.setIcon(new ImageIcon(image4));
 
+        Image image3 = new ImageIcon("images/PersonalInfo.png").getImage();
+        personalInfo.setIcon(new ImageIcon(image3));
+
+        Image image5 = new ImageIcon("images/Languaje.png").getImage();
+        languaje.setIcon(new ImageIcon(image5));
+
+
         menu.add(calculator);
-        menu.add(personalInfo);
         menu.add(calendar);
+        menu.add(personalInfo);
+        menu.add(languaje);
         menubar.setLayout(new GridBagLayout());
         menubar.add(menu);
 
@@ -66,6 +70,8 @@ public class menuView {
         //button.setBorder(new ButtonStyle(40));
         button.setBackground(new Color(97,104,135));
         jp2.add(button,c);
+        menuViewListener listener1 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button.addActionListener(listener1);
 
         c.gridx = 1;
         c.gridy = 0;
@@ -76,6 +82,8 @@ public class menuView {
         //button2.setBorder(new ButtonStyle(40));
         button2.setBackground(new Color(97,104,135));
         jp2.add(button2,c);
+        menuViewListener listener2 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button2.addActionListener(listener2);
 
         c.gridx = 0;
         c.gridy = 1;
@@ -86,6 +94,8 @@ public class menuView {
         //button3.setBorder(new ButtonStyle(40));
         button3.setBackground(new Color(97,104,135));
         jp2.add(button3,c);
+        menuViewListener listener3 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button3.addActionListener(listener3);
 
         c.gridx = 1;
         c.gridy = 1;
@@ -96,6 +106,8 @@ public class menuView {
         //button4.setBorder(new ButtonStyle(40));
         button4.setBackground(new Color(97,104,135));
         jp2.add(button4,c);
+        menuViewListener listener4 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button4.addActionListener(listener4);
 
         c.gridx = 0;
         c.gridy = 2;
@@ -106,6 +118,8 @@ public class menuView {
         //button5.setBorder(new ButtonStyle(40));
         button5.setBackground(new Color(97,104,135));
         jp2.add(button5,c);
+        menuViewListener listener5 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button5.addActionListener(listener5);
 
         c.gridx = 1;
         c.gridy = 2;
@@ -116,6 +130,8 @@ public class menuView {
         //button6.setBorder(new ButtonStyle(40));
         button6.setBackground(new Color(97,104,135));
         jp2.add(button6,c);
+        menuViewListener listener6 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button6.addActionListener(listener6);
 
         c.gridx = 0;
         c.gridy = 3;
@@ -126,6 +142,8 @@ public class menuView {
         //button7.setBorder(new ButtonStyle(40));
         button7.setBackground(new Color(97,104,135));
         jp2.add(button7,c);
+        menuViewListener listener7 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button7.addActionListener(listener7);
 
         c.gridx = 1;
         c.gridy = 3;
@@ -136,6 +154,8 @@ public class menuView {
         //button8.setBorder(new ButtonStyle(40));
         button8.setBackground(new Color(97,104,135));
         jp2.add(button8,c);
+        menuViewListener listener8 = new menuViewListener(centralPanel,jp1,jp2,jf);
+        button8.addActionListener(listener8);
 
         
 //      Creamos una division del panel inferior para coger las 3/4 partes del panel izquierdo
@@ -167,6 +187,8 @@ public class menuView {
         cancelButton.setForeground(Color.WHITE);
         cancelButton.setPreferredSize(new Dimension(250, 100));
         cancelButton.setBackground(Color.red);
+        menuPayButtonsListener cancelListener = new menuPayButtonsListener(1,jf);
+        cancelButton.addActionListener(cancelListener);
 
         JButton paySelectedButton = new JButton("PAGAR SELECCIONADOS");
         paySelectedButton.setForeground(Color.WHITE);

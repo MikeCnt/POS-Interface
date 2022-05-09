@@ -2,75 +2,78 @@
     Listener para los botones de pago del menu
 */
 
-import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class menuPayButtonsListener implements ActionListener{
 	
-	Container cp;
-    
-    public menuPayButtonsListener(Container cp) {
-        this.cp = cp;
+	int code;
+    JFrame frame;
+
+    public menuPayButtonsListener(int code, JFrame frame) {
+        this.code = code;
+        this.frame = frame;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         
-
-
         //This if is accessed if you press cancel
-        if (e.getActionCommand().equals("Cancelar") || e.getActionCommand().equals("Cancel")) {
+        if (e.getActionCommand().equals("CANCELAR CUENTA") || e.getActionCommand().equals("CANCEL BILL")) {
 
-            int ret = JOptionPane.showConfirmDialog(cp, "¡¡CUIDADO!!\nEsta accion borrara TODA la cuenta de la mesa.\n¿Quieres continuar?", "¡CUIDADO!",
+            int ret = JOptionPane.showConfirmDialog(frame, "¡¡CUIDADO!!\nEsta accion borrara TODA la cuenta de la mesa.\n¿Quieres continuar?", "¡CUIDADO!",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             
             if (ret == 0) {
 
-                String text = "1,0,order\n2,0,order\n3,0,order\n4,0,order\n5,0,order\n6,0,order\n7,0,order\n8,0,order";
-
                 try {
-                    BufferedWriter tablesWriter = new BufferedWriter(new FileWriter("tables.txt"));
 
-                    tablesWriter.write(text);
-                    tablesWriter.close();
+                    File temp = new File("bill.txt");
+                    File output = new File("temp.txt"); // SOBREESCRIBIREMOS ESTE
+                    FileReader fr = new FileReader(temp);
+                    BufferedReader br = new BufferedReader(fr);
 
-                    File temp = new File("temp.txt");
-                    Scanner tempReader = new Scanner(temp);
+                    FileWriter fw1 = new FileWriter(temp, true);
+                    FileWriter fw2 = new FileWriter(output, true);
+                    BufferedWriter bw1 = new BufferedWriter(fw1);
+                    BufferedWriter bw2 = new BufferedWriter(fw2);
 
-				    String worker = tempReader.nextLine();
-                    String table = tempReader.nextLine();
+                    String line;
+                    while((line = br.readLine()) != null){
+                        String[] token = line.split(",");
 
-                    String[] tokens = table.split(",",3);
+                        if(Integer.toString(code) != token[0]){
+                            // BORRAMOS EL QUE COINCIDA CON EL CODIGO
+                            bw2.write(line);
+                        }
+                    }
 
-                    String newTable = tokens[0].concat(",0,order");
+                    bw1.write(""); // VACIAMOS EL PPAL
+                    String aux;
+                    while((aux = br.readLine()) != null){
+                        bw1.write(aux);
+                    }
+                    
+                    output.delete();
 
-                    tempReader.close();
-
-                    BufferedWriter tempWriter = new BufferedWriter(new FileWriter("temp.txt"));
-
-                    tempWriter.write(worker);
-                    tempWriter.write("\n");
-                    tempWriter.write(newTable);
-                    tempWriter.close();
+                    fr.close();
+                    bw1.close();
+                    bw2.close();
 
                 } catch (IOException io) {
                     System.out.println("An error occurred.");
                     io.printStackTrace();
                 }
             }
-            else {
-                System.out.println("Cancelar No");
-            }
         }
 
         //This if is accessed if you press selected
-        else if (e.getActionCommand().equals("Seleccionados") || e.getActionCommand().equals("Selected")) {
+        else if (e.getActionCommand().equals("PAGAR SELECCIONADOS") || e.getActionCommand().equals("PAY SELECTED")) {
 
-            int ret = JOptionPane.showConfirmDialog(cp, "¿Estás seguro?\nSi seleciona \"Si\" parasará directamente a la pantalla de pago", "¡CUIDADO!",
+            int ret = JOptionPane.showConfirmDialog(frame, "¿Estás seguro?\nSi seleciona \"Si\" parasará directamente a la pantalla de pago", "¡CUIDADO!",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             
             if (ret == 0) {
@@ -102,9 +105,9 @@ public class menuPayButtonsListener implements ActionListener{
         }
 
         //This if is accessed if you press All
-        else if (e.getActionCommand().equals("Todos") || e.getActionCommand().equals("All")) {
+        else if (e.getActionCommand().equals("PAGAR TODO") || e.getActionCommand().equals("PAY ALL")) {
 
-            int ret = JOptionPane.showConfirmDialog(cp, "¿Estás seguro?\nSi seleciona \"Si\" parasará directamente a la pantalla de pago", "¡CUIDADO!",
+            int ret = JOptionPane.showConfirmDialog(frame, "¿Estás seguro?\nSi seleciona \"Si\" parasará directamente a la pantalla de pago", "¡CUIDADO!",
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             
             if (ret == 0) {
