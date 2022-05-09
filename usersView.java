@@ -9,7 +9,7 @@ import java.util.*;
 public class usersView {
     public static void main(String[] args){
 
-        JFrame jf = new JFrame();
+        JFrame jf = new JFrame("TPV");
 
 
 /****************************************************
@@ -748,15 +748,12 @@ public class usersView {
 
 
 
-        String code = "1";
+        
 
 //      Añadimos la bara del menu superior y las acciones que la controlan
         JMenuBar menubar = new JMenuBar();
         JMenu menu = new JMenu();
         JMenuItem calculator = new JMenuItem("Calculadora");
-        JMenuItem personalInfo = new JMenuItem("Informacion");
-        JMenuItem calendar = new JMenuItem("Calendario");
-        JMenuItem languaje = new JMenuItem("Idioma");
 
         Image image = new ImageIcon("images/Options.png").getImage();
         menu.setIcon(new ImageIcon(image));
@@ -764,24 +761,12 @@ public class usersView {
         Image image2 = new ImageIcon("images/Calculator.png").getImage();
         calculator.setIcon(new ImageIcon(image2));
 
-        Image image4 = new ImageIcon("images/Calendar.png").getImage();
-        calendar.setIcon(new ImageIcon(image4));
-
-        Image image3 = new ImageIcon("images/PersonalInfo.png").getImage();
-        personalInfo.setIcon(new ImageIcon(image3));
-
-        Image image5 = new ImageIcon("images/Languaje.png").getImage();
-        languaje.setIcon(new ImageIcon(image5));
-
 
         menu.add(calculator);
-        menu.add(calendar);
-        menu.add(personalInfo);
-        menu.add(languaje);
         menubar.setLayout(new GridBagLayout());
         menubar.add(menu);
 
-        MyJMenuListener jmListener = new MyJMenuListener(calculator, personalInfo, calendar);
+        MyJMenuListener jmListener = new MyJMenuListener(calculator);
         calculator.addActionListener(jmListener);
 
 //      Creamos la primera division en dos del frame
@@ -1090,6 +1075,5 @@ public class usersView {
         jf.setJMenuBar(menubar);
         jf.revalidate();
         jf.repaint();
-
-    }
+        }
 }
