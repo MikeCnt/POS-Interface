@@ -1,5 +1,6 @@
 
 
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -9,19 +10,18 @@ import java.util.Scanner;
 import java.io.*;
 import javax.swing.*;
 
-public class mapViewListener implements ActionListener{
+public class ReservationsListener implements ActionListener{
     
     JFrame jf;
     JPanel jp;
-    JMenuItem calendar;
     
-    public mapViewListener(JFrame jf, JPanel jp) {
+    public ReservationsListener(JFrame jf, JPanel jp) {
 
         this.jf = jf;
         this.jp = jp;
     }
     
-    public mapViewListener() {
+    public ReservationsListener() {
 
         this(null, null);
     }
@@ -30,10 +30,7 @@ public class mapViewListener implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         if (e.getActionCommand().equals("Atras") || e.getActionCommand().equals("Back")) {
-            System.out.println("Atras");
-        }
-        else if (e.getActionCommand().equals("Reservas") || e.getActionCommand().equals("Bookings")) {
-
+            
 			jp.setVisible(true); //Panel visible
 			jf.setContentPane(jp); //Indicar panel como principal
 			jf.revalidate();
@@ -41,23 +38,27 @@ public class mapViewListener implements ActionListener{
         else if (e.getActionCommand().equals("1") || e.getActionCommand().equals("2") || e.getActionCommand().equals("3") || e.getActionCommand().equals("4")
                 || e.getActionCommand().equals("5") || e.getActionCommand().equals("6") || e.getActionCommand().equals("7") || e.getActionCommand().equals("8")){
             
+			try {
 
-            try {
+				File reservations = new File("reservations.txt");
+				Scanner reservationsReader = new Scanner(reservations);
+	
+				while (reservationsReader.hasNextLine()) {
+					String data = reservationsReader.nextLine();
+					String[] table = data.split(",", 2);         
+	
+					if (table[0].equals(e.getActionCommand())) {
 
-                File temp = new File("temp.txt");
-                Scanner tempReader = new Scanner(temp);
+						BufferedWriter out = new BufferedWriter(new FileWriter("reservationsTemp.txt"));
+                		out.write(data);
+						out.close();
+						break;
+					}
+				}
+				
+				reservationsReader.close();
 
-                String worker = tempReader.nextLine();
-                tempReader.close();
-                
-
-                BufferedWriter out = new BufferedWriter(new FileWriter("temp.txt"));
-                out.write(e.getActionCommand());
-                out.write(",");
-                out.write(worker);
-                out.close();
-    
-            } catch (FileNotFoundException exc) {
+			} catch (FileNotFoundException exc) {
     
                 System.out.println("File Not Found.");
                 exc.printStackTrace();
@@ -65,7 +66,11 @@ public class mapViewListener implements ActionListener{
             } catch (IOException io) {
                 System.out.println("An error occurred.");
                 io.printStackTrace();
-            } 
+            }
+
+			jp.setVisible(true); //Panel visible
+			jf.setContentPane(jp); //Indicar panel como principal
+			jf.revalidate();
         }
         
         
