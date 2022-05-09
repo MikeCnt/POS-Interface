@@ -12,18 +12,13 @@ import javax.swing.*;
 
 public class selectDayListener implements ActionListener{
     
-    JFrame jf;
-    JPanel jp;
+    public JFrame jf;
+    public JPanel jp;
     
     public selectDayListener(JFrame jf, JPanel jp) {
 
         this.jf = jf;
         this.jp = jp;
-    }
-    
-    public selectDayListener() {
-
-        this(null, null);
     }
     
     @Override
@@ -122,6 +117,7 @@ public class selectDayListener implements ActionListener{
 			jp.setVisible(true); //Panel visible
 			jf.setContentPane(jp); //Indicar panel como principal
 			jf.revalidate();
+			jf.repaint();
         }
         
         
