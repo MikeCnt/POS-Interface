@@ -4,14 +4,14 @@ import javax.swing.*;
 
 public class Calculator extends JFrame implements ActionListener
 {    
-   JButton b10,b11,b12,b13,b14,b15; 
-   JButton b[]=new JButton[10];
+   	JButton b10,b11,b12,b13,b14,b15; 
+   	JButton b[]=new JButton[10];
     int i,r,n1,n2;
     JTextField res;
     char op; 
    public Calculator()
   {
-     super("Calculadora");
+      super("Calculadora");
       setLayout(new BorderLayout());
       JPanel p=new JPanel();
       p.setLayout(new GridLayout(4,4));
@@ -48,8 +48,11 @@ public class Calculator extends JFrame implements ActionListener
       res=new JTextField();
       add(p,BorderLayout.CENTER);
       add(res,BorderLayout.NORTH);
-      setVisible(true);
-      setSize(300,300);
+	  add(p);
+	  setSize(300,300);
+	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	  setVisible(true);
+	  
      }
 public void actionPerformed(ActionEvent ae)
 {
