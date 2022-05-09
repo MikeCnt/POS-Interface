@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 
-public class mapView {
+public class prueba {
 	public static void main(String[] args) {
 
 //	Main JFrame
 		
-		JFrame jf = new JFrame("Mapa");
+		JFrame jf = new JFrame("Reservas");
 
 
 /****************************************************
@@ -19,17 +19,6 @@ public class mapView {
 *****************************************************/
 
 
-//	mapViewPanel 
-		
-		BorderLayout blMapView = new BorderLayout();
-		blMapView.setHgap(20);
-		blMapView.setVgap(20);
-
-		JPanel mapViewPanel = new JPanel(blMapView);
-
-		jf.setContentPane(mapViewPanel);
-
-
 //	reservationTablesPanel
 		
 		BorderLayout blReservationTables = new BorderLayout();
@@ -37,6 +26,8 @@ public class mapView {
 		blReservationTables.setVgap(20);
 
 		JPanel reservationTablesPanel = new JPanel(blReservationTables);
+
+		jf.setContentPane(reservationTablesPanel);
 
 
 //	chooseDayPanel
@@ -50,247 +41,6 @@ public class mapView {
 
 
 
-/****************************************************
- * 													*
- * 			 		Map View Panel 					*
- * 													*
-*****************************************************/
-
-
-//	Menu Bar
-
-		JMenuBar menubarMapView = new JMenuBar();
-        JMenu menuMapView = new JMenu();
-        JMenuItem calculatorMapView = new JMenuItem("Calculadora");
-        JMenuItem personalInfoMapView = new JMenuItem("Informacion");
-        JMenuItem calendarMapView = new JMenuItem("Reservas");
-
-        menubarMapView.add(Box.createHorizontalGlue());
-
-        Image imageOptionsMapView = new ImageIcon("images/Options.png").getImage();
-        menuMapView.setIcon(new ImageIcon(imageOptionsMapView));
-
-        Image imageCalendarMapView = new ImageIcon("images/Calendar.png").getImage();
-        calendarMapView.setIcon(new ImageIcon(imageCalendarMapView));
-
-		menuMapView.add(calendarMapView);
-		menubarMapView.setLayout(new GridBagLayout());
-        menubarMapView.add(menuMapView);
-
-        MyJMenuListener jmListenerMapView = new MyJMenuListener(calculatorMapView, personalInfoMapView, calendarMapView, jf, reservationTablesPanel);
-        menuMapView.addActionListener(jmListenerMapView);
-
-
-//	GridLayout for the map in the center
-
-		GridLayout glMapView = new GridLayout(3,5);
-
-		glMapView.setHgap(20);
-		glMapView.setVgap(20);
-
-		JPanel centerMapView = new JPanel(glMapView);
-
-//		Numbered Buttons
-		ImageIcon table1MapView = new ImageIcon("images/table1.png");
-		JButton button1MapView = new JButton("1",table1MapView);
-		button1MapView.addActionListener(new mapViewListener());
-		button1MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button1MapView.setContentAreaFilled(false);
-		button1MapView.setBorderPainted(false);
-
-		ImageIcon table2MapView = new ImageIcon("images/table2.png");
-		JButton button2MapView = new JButton("2",table2MapView);
-		button2MapView.addActionListener(new mapViewListener());
-		button2MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button2MapView.setContentAreaFilled(false);
-		button2MapView.setBorderPainted(false);
-
-		ImageIcon table3MapView = new ImageIcon("images/table3.png");
-		JButton button3MapView = new JButton("3",table3MapView);
-		button3MapView.addActionListener(new mapViewListener());
-		button3MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button3MapView.setContentAreaFilled(false);
-		button3MapView.setBorderPainted(false);
-
-		ImageIcon table4MapView = new ImageIcon("images/table4.png");
-		JButton button4MapView = new JButton("4",table4MapView);
-		button4MapView.addActionListener(new mapViewListener());
-		button4MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button4MapView.setContentAreaFilled(false);
-		button4MapView.setBorderPainted(false);
-
-		ImageIcon table5MapView = new ImageIcon("images/table5.png");
-		JButton button5MapView = new JButton("5",table5MapView);
-		button5MapView.addActionListener(new mapViewListener());
-		button5MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button5MapView.setContentAreaFilled(false);
-		button5MapView.setBorderPainted(false);
-
-		ImageIcon table6MapView = new ImageIcon("images/table6.png");
-		JButton button6MapView = new JButton("6",table6MapView);
-		button6MapView.addActionListener(new mapViewListener());
-		button6MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button6MapView.setContentAreaFilled(false);
-		button6MapView.setBorderPainted(false);
-
-		ImageIcon table7MapView = new ImageIcon("images/table7.png");
-		JButton button7MapView = new JButton("7",table7MapView);
-		button7MapView.addActionListener(new mapViewListener());
-		button7MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button7MapView.setContentAreaFilled(false);
-		button7MapView.setBorderPainted(false);
-
-		ImageIcon table8MapView = new ImageIcon("images/table8.png");
-		JButton button8MapView = new JButton("8",table8MapView);
-		button8MapView.addActionListener(new mapViewListener());
-		button8MapView.setFont(new Font("Arial", Font.PLAIN, 1));
-		button8MapView.setContentAreaFilled(false);
-		button8MapView.setBorderPainted(false);
-
-
-//		Invisible buttons
-		JButton inv1MapView = new JButton();
-		inv1MapView.setOpaque(false);
-		inv1MapView.setContentAreaFilled(false);
-		inv1MapView.setBorderPainted(false);
-		JButton inv2MapView = new JButton();
-		inv2MapView.setOpaque(false);
-		inv2MapView.setContentAreaFilled(false);
-		inv2MapView.setBorderPainted(false);
-		JButton inv3MapView = new JButton();
-		inv3MapView.setOpaque(false);
-		inv3MapView.setContentAreaFilled(false);
-		inv3MapView.setBorderPainted(false);
-		JButton inv4MapView = new JButton();
-		inv4MapView.setOpaque(false);
-		inv4MapView.setContentAreaFilled(false);
-		inv4MapView.setBorderPainted(false);
-		JButton inv5MapView = new JButton();
-		inv5MapView.setOpaque(false);
-		inv5MapView.setContentAreaFilled(false);
-		inv5MapView.setBorderPainted(false);
-		JButton inv6MapView = new JButton();
-		inv6MapView.setOpaque(false);
-		inv6MapView.setContentAreaFilled(false);
-		inv6MapView.setBorderPainted(false);
-		JButton inv7MapView = new JButton();
-		inv7MapView.setOpaque(false);
-		inv7MapView.setContentAreaFilled(false);
-		inv7MapView.setBorderPainted(false);
-		
-		
-//		Adding all the buttons in order to the GridLayout
-		centerMapView.add(button1MapView);
-		centerMapView.add(inv1MapView);
-		centerMapView.add(button2MapView);
-		centerMapView.add(inv2MapView);
-		centerMapView.add(button3MapView);
-		centerMapView.add(inv3MapView);
-		centerMapView.add(button4MapView);
-		centerMapView.add(inv4MapView);
-		centerMapView.add(button5MapView);
-		centerMapView.add(inv5MapView);
-		centerMapView.add(button6MapView);
-		centerMapView.add(inv6MapView);
-		centerMapView.add(button7MapView);
-		centerMapView.add(inv7MapView);
-		centerMapView.add(button8MapView);
-
-		centerMapView.setOpaque(false);
-
-
-
-//		FlowLayout for the back button
-
-		FlowLayout flSouthMapView = new FlowLayout();
-
-		flSouthMapView.setAlignment(FlowLayout.RIGHT);
-		flSouthMapView.setHgap(20);
-		flSouthMapView.setVgap(20);
-
-		JPanel southMapView = new JPanel(flSouthMapView);
-
-		JButton backMapView = new JButton("Atras");
-		backMapView.setPreferredSize(new Dimension(100,50));
-		backMapView.addActionListener(new mapViewListener());
-		
-		southMapView.add(backMapView);
-
-		southMapView.setOpaque(false);
-
-
-//		Invisible panel for restaurant bar
-
-		BorderLayout blEastMapView = new BorderLayout();
-
-		JPanel eastMapView = new JPanel(blEastMapView);
-
-		JButton invEastMapView = new JButton();
-		invEastMapView.setOpaque(false);
-		invEastMapView.setContentAreaFilled(false);
-		invEastMapView.setBorderPainted(false);
-		invEastMapView.setPreferredSize(new Dimension(300, 100));
-
-		JButton invBarLeftMapView = new JButton();
-		invBarLeftMapView.setPreferredSize(new Dimension(50,10));
-		invBarLeftMapView.setContentAreaFilled(false);
-		invBarLeftMapView.setBorderPainted(false);
-		JPanel barLeftMapView = new JPanel(new FlowLayout());
-		barLeftMapView.setBackground(new Color(206,152,67));
-		barLeftMapView.add(invBarLeftMapView);
-
-		JButton invBarBottomMapView = new JButton();
-		invBarBottomMapView.setPreferredSize(new Dimension(10,50));
-		invBarBottomMapView.setContentAreaFilled(false);
-		invBarBottomMapView.setBorderPainted(false);
-		JPanel barBottomMapView = new JPanel(new FlowLayout());
-		barBottomMapView.setBackground(new Color(206,152,67));
-		barBottomMapView.add(invBarBottomMapView);
-
-
-
-		eastMapView.add(invEastMapView, BorderLayout.CENTER);
-		eastMapView.add(barLeftMapView, BorderLayout.WEST);
-		eastMapView.add(barBottomMapView, BorderLayout.SOUTH);
-
-		eastMapView.setOpaque(false);
-		
-
-
-//		Invisible panel for west separation
-
-		FlowLayout flWestMapView = new FlowLayout();
-
-		flWestMapView.setAlignment(FlowLayout.CENTER);
-		flWestMapView.setHgap(5);
-		flWestMapView.setVgap(5);
-
-		JPanel westMapView = new JPanel(flWestMapView);
-
-		JButton invWestMapView = new JButton();
-		invWestMapView.setOpaque(false);
-		invWestMapView.setContentAreaFilled(false);
-		invWestMapView.setBorderPainted(false);
-		invWestMapView.setPreferredSize(new Dimension(20, 20));
-		westMapView.add(invWestMapView);
-
-		westMapView.setOpaque(false);
-
-
-//		Añadimos los sub-paneles al panel principal de BorderLayout
-		
-		mapViewPanel.add(centerMapView, BorderLayout.CENTER);
-		mapViewPanel.add(southMapView, BorderLayout.SOUTH);
-		mapViewPanel.add(eastMapView, BorderLayout.EAST);
-		mapViewPanel.add(westMapView, BorderLayout.WEST);
-
-		mapViewPanel.setBackground(Color.green);
-
-		mapViewPanel.setOpaque(false);
-		
-		
-		
-		
 /****************************************************
  * 													*
  * 			 Reservation Tables Panel 				*
@@ -429,7 +179,7 @@ public class mapView {
 
 		JButton backReservationTables = new JButton("Atras");
 		backReservationTables.setPreferredSize(new Dimension(100,50));
-		backReservationTables.addActionListener(new ReservationsListener(jf, mapViewPanel));
+		backReservationTables.addActionListener(new ReservationsListener());
 		
 		southReservationTables.add(backReservationTables);
 
@@ -492,21 +242,6 @@ public class mapView {
 		westReservationTables.add(invWestReservationTables);
 
 		westReservationTables.setOpaque(false);
-		
-
-
-//		Panel for north label
-
-		FlowLayout flNorthReservationTables = new FlowLayout();
-
-		flNorthReservationTables.setAlignment(FlowLayout.CENTER);
-
-		JPanel northReservationTables = new JPanel(flNorthReservationTables);
-
-		JLabel jlNorthReservationTables = new JLabel("ELIGE UNA MESA");
-
-		jlNorthReservationTables.setFont(new Font("Sans", Font.PLAIN, 20));
-		northReservationTables.add(jlNorthReservationTables);
 
 
 //		Añadimos los sub-paneles al panel principal de BorderLayout
@@ -515,7 +250,6 @@ public class mapView {
 		reservationTablesPanel.add(southReservationTables, BorderLayout.SOUTH);
 		reservationTablesPanel.add(eastReservationTables, BorderLayout.EAST);
 		reservationTablesPanel.add(westReservationTables, BorderLayout.WEST);
-		reservationTablesPanel.add(northReservationTables, BorderLayout.NORTH);
 		reservationTablesPanel.setBackground(Color.green);
 		reservationTablesPanel.setOpaque(false);
 
@@ -674,18 +408,10 @@ public class mapView {
 		chooseDayPanel.add(westChooseDay, BorderLayout.WEST);
 		chooseDayPanel.setOpaque(false);
 
-
-		/****************************************************
-		 * 													*
-		 * 			 	  JFrame Properties					*
-		 * 													*
-		*****************************************************/
 		
-
 
 		jf.setBackground(new Color(90,142,253));
 
-		jf.setJMenuBar(menubarMapView);
 		jf.revalidate();
 		jf.repaint();
 

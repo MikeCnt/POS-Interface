@@ -1,8 +1,5 @@
-/*
-    Listener para los botones de pago del menu
-*/
 
-import java.awt.Container;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -10,12 +7,22 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 import java.io.*;
+import javax.swing.*;
 
 public class mapViewListener implements ActionListener{
-	Container cp;
     
-    public mapViewListener(Container cp) {
-        this.cp = cp;
+    JFrame jf;
+    JPanel jp;
+    
+    public mapViewListener(JFrame jf, JPanel jp) {
+
+        this.jf = jf;
+        this.jp = jp;
+    }
+    
+    public mapViewListener() {
+
+        this(null, null);
     }
     
     @Override
@@ -23,9 +30,6 @@ public class mapViewListener implements ActionListener{
         
         if (e.getActionCommand().equals("Atras") || e.getActionCommand().equals("Back")) {
             System.out.println("Atras");
-        }
-        else if (e.getActionCommand().equals("c")) {
-            System.out.println("c");
         }
         else if (e.getActionCommand().equals("1") || e.getActionCommand().equals("2") || e.getActionCommand().equals("3") || e.getActionCommand().equals("4")
                 || e.getActionCommand().equals("5") || e.getActionCommand().equals("6") || e.getActionCommand().equals("7") || e.getActionCommand().equals("8")){
