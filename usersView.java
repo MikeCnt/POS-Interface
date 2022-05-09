@@ -305,6 +305,7 @@ public class usersView {
         JButton backMapView = new JButton("Atras");
         backMapView.setPreferredSize(new Dimension(100,50));
         backMapView.addActionListener(new mapViewListener());
+        backMapView.setBackground(new Color(97,104,135));
         
         southMapView.add(backMapView);
 
@@ -527,6 +528,7 @@ public class usersView {
         JButton backReservationTables = new JButton("Atras");
         backReservationTables.setPreferredSize(new Dimension(100,50));
         backReservationTables.addActionListener(new ReservationsListener(jf, mapViewPanel));
+        backReservationTables.setBackground(new Color(97,104,135));
         
         southReservationTables.add(backReservationTables);
 
@@ -613,7 +615,6 @@ public class usersView {
         reservationTablesPanel.add(eastReservationTables, BorderLayout.EAST);
         reservationTablesPanel.add(westReservationTables, BorderLayout.WEST);
         reservationTablesPanel.add(northReservationTables, BorderLayout.NORTH);
-        reservationTablesPanel.setBackground(Color.green);
         reservationTablesPanel.setOpaque(false);
 
 
@@ -683,6 +684,7 @@ public class usersView {
                         JButton dayBtnChooseDay = new JButton(dayChooseDay[i]);
                         dayBtnChooseDay.setPreferredSize(new Dimension(70,70));
                         dayBtnChooseDay.addActionListener(new selectDayListener(jf, mapViewPanel));
+                        dayBtnChooseDay.setBackground(new Color(97,104,135));
                         centerInnerPanelChooseDay.add(dayBtnChooseDay);
                         
                 }
@@ -718,6 +720,7 @@ public class usersView {
         JButton backChooseDay = new JButton("Atras");
         backChooseDay.setPreferredSize(new Dimension(100,50));
         backChooseDay.addActionListener(new selectDayListener(jf, reservationTablesPanel));
+        backChooseDay.setBackground(new Color(97,104,135));
         
         southChooseDay.add(backChooseDay);
 
